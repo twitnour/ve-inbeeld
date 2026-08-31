@@ -1,0 +1,37 @@
+.hero {
+  overflow: hidden;
+}
+
+/* A quiet corner accent — behind the text, never competing with it. */
+.hero :global(.decor-ring) {
+  top: -3rem;
+  right: -2rem;
+  width: 16rem;
+  height: 16rem;
+  opacity: 0.25;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+}
+
+.lead {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
