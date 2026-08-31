@@ -17,4 +17,6 @@ export const paths = {
   overMij: '/over-mij',
   contact: '/contact',
   offerteAanvragen: '/offerte-aanvragen',
+  /** Development-only visual language reference. Never link this from public navigation. */
+  designSystem: '/design-system',
 } as const

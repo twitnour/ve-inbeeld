@@ -1,7 +1,21 @@
 .container {
   width: 100%;
-  max-width: var(--content-max-width);
   margin-inline: auto;
   padding-inline: var(--content-padding-inline);
+}
+
+.narrow {
+  max-width: var(--content-max-width-narrow);
+}
+
+.normal {
+  max-width: var(--content-max-width);
+}
+
+.wide {
+  max-width: var(--content-max-width-wide);
+}
+
+.padded {
   padding-block: var(--space-2xl);
 }

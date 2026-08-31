@@ -1,0 +1,196 @@
+.devTag {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  padding: var(--space-2xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  background-color: var(--color-sand);
+  border-radius: var(--radius-sm);
+}
+
+.subheading {
+  margin-top: var(--space-xl);
+}
+
+.mutedText {
+  color: var(--color-text-muted);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Color swatches */
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--space-lg);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.swatchColor {
+  height: 5rem;
+  border-radius: var(--radius-md);
+}
+
+.swatchLabel {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+}
+
+.swatchLabel code {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+/* Cards */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Section tone swatches */
+
+.toneGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-md);
+}
+
+.toneSwatch {
+  height: 6rem;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.toneDefault {
+  background-color: var(--color-background);
+}
+
+.toneBlush {
+  background-color: var(--color-soft-pink);
+}
+
+.toneSand {
+  background-color: var(--color-sand);
+}
+
+.toneSurface {
+  background-color: var(--color-surface);
+}
+
+/* Icons */
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: var(--space-lg);
+}
+
+.iconSample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+/* Spacing scale */
+
+.spacingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.spacingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+.spacingRow code {
+  width: 8rem;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.spacingBar {
+  height: 1rem;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* Container width demo */
+
+.containerDemo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.containerBox {
+  padding: var(--space-md);
+  background-color: var(--color-background);
+  border: 1px dashed var(--color-secondary);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Decorative accents demo */
+
+.decorDemo {
+  position: relative;
+  min-height: 14rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  overflow: hidden;
+}
+
+.decorDemo :global(.decor-ring),
+.decorDemo :global(.decor-bloom) {
+  position: static;
+  flex-shrink: 0;
+}
+
+.decorLineDemo,
+.decorBrushDemo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.decorBrushDemo {
+  width: 8rem;
+}
+
+.decorBrushDemo :global(.decor-brushstroke) {
+  width: 100%;
+}

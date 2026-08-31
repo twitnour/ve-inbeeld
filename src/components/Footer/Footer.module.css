@@ -5,15 +5,18 @@
   color: var(--color-text);
 }
 
-.inner {
-  max-width: var(--content-max-width);
+.grid {
+  max-width: var(--content-max-width-wide);
   margin-inline: auto;
   padding-inline: var(--content-padding-inline);
-  padding-block: var(--space-xl);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-md);
+  padding-block: var(--space-2xl) var(--space-xl);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.column {
+  min-width: 0;
 }
 
 .logoLink {
@@ -21,28 +24,96 @@
 }
 
 .logo {
-  height: 48px;
+  height: 52px;
   width: auto;
+  margin-bottom: var(--space-sm);
 }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
+.tagline {
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
+  max-width: 32ch;
 }
 
-.links a {
+.heading {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.plainList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
   text-decoration: none;
 }
 
-.links a:hover {
-  color: var(--color-primary);
+.contactLink:hover,
+.contactLink:focus-visible {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.bottomBar {
+  border-top: 1px solid var(--color-border);
+  max-width: var(--content-max-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--content-padding-inline);
+  padding-block: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
 }
 
 .copyright {
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+}
+
+.privacyLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+}
+
+.privacyLink:hover,
+.privacyLink:focus-visible {
+  color: var(--color-text);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

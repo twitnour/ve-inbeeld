@@ -1,0 +1,21 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding-block: var(--space-section-block);
+}
+
+.default {
+  background-color: var(--color-background);
+}
+
+.blush {
+  background-color: var(--color-soft-pink);
+}
+
+.sand {
+  background-color: var(--color-sand);
+}
+
+.surface {
+  background-color: var(--color-surface);
+}

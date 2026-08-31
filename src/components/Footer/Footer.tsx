@@ -1,32 +1,84 @@
 import { Link } from 'react-router-dom'
+import { Mail, Phone, Link2 } from 'lucide-react'
 import { paths } from '../../routes/paths'
 import logo from '../../assets/logo.jpeg'
 import styles from './Footer.module.css'
 
 /**
- * Structural site footer: logo, secondary links and copyright.
- * The logo shown here is a temporary placeholder wiring — final footer
- * styling and content are designed later.
+ * Full site footer: four logical areas (brand, registrations, contact,
+ * business info) plus a bottom bar. Collapses from a 4-column grid to
+ * 2 columns on tablet and a single stacked column on mobile.
  */
 export function Footer() {
   const year = new Date().getFullYear()
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.inner}>
-        <Link to={paths.home} className={styles.logoLink} aria-label="VE in Beeld - home">
-          <img src={logo} alt="VE in Beeld" className={styles.logo} />
-        </Link>
+      <div className={styles.grid}>
+        <div className={styles.column}>
+          <Link to={paths.home} className={styles.logoLink} aria-label="VE in Beeld - home">
+            <img src={logo} alt="VE in Beeld" className={styles.logo} />
+          </Link>
+          <p className={styles.tagline}>
+            Training, workshops en beeldcoaching voor pedagogisch professionals —
+            met aandacht, warmte en ruimte om te groeien.
+          </p>
+        </div>
 
-        <nav className={styles.links} aria-label="Footer">
-          <Link to={paths.contact}>Contact</Link>
-          <Link to={paths.offerteAanvragen}>Offerte aanvragen</Link>
-          <Link to={paths.overMij}>Over mij</Link>
-        </nav>
+        <div className={styles.column}>
+          <h2 className={styles.heading}>Registratie &amp; licenties</h2>
+          <ul className={styles.plainList}>
+            <li>Uk &amp; Puk trainer</li>
+            <li>Beeldcoach</li>
+          </ul>
+        </div>
 
+        <div className={styles.column}>
+          <h2 className={styles.heading}>Contact</h2>
+          <ul className={styles.plainList}>
+            <li>
+              <a href="mailto:info@veinbeeld.nl" className={styles.contactLink}>
+                <Mail size={16} aria-hidden="true" />
+                <span>info@veinbeeld.nl</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+310000000000" className={styles.contactLink}>
+                <Phone size={16} aria-hidden="true" />
+                <span>+31 6 00 00 00 00</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className={styles.contactLink}
+                aria-label="VE in Beeld op LinkedIn (opent in nieuw tabblad)"
+              >
+                <Link2 size={16} aria-hidden="true" />
+                <span>LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.column}>
+          <h2 className={styles.heading}>Bedrijfsgegevens</h2>
+          <ul className={styles.plainList}>
+            <li>Marsha Lispet</li>
+            <li>KvK 00000000</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.bottomBar}>
         <p className={styles.copyright}>
           &copy; {year} VE in Beeld. Alle rechten voorbehouden.
         </p>
+        <a href="#" className={styles.privacyLink}>
+          Privacyverklaring
+        </a>
       </div>
     </footer>
   )

@@ -10,6 +10,7 @@ import { WorkshopsPage } from '../pages/Workshops/WorkshopsPage'
 import { OverMijPage } from '../pages/OverMij/OverMijPage'
 import { ContactPage } from '../pages/Contact/ContactPage'
 import { OfferteAanvragenPage } from '../pages/OfferteAanvragen/OfferteAanvragenPage'
+import { DesignSystemPage } from '../pages/DesignSystem/DesignSystemPage'
 import { NotFoundPage } from '../pages/NotFound/NotFoundPage'
 import { paths } from './paths'
 
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
       { path: paths.overMij, element: <OverMijPage /> },
       { path: paths.contact, element: <ContactPage /> },
       { path: paths.offerteAanvragen, element: <OfferteAanvragenPage /> },
+      { path: paths.designSystem, element: <DesignSystemPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import { paths } from '../../routes/paths'
 import { Navigation } from '../Navigation/Navigation'
+import { MobileNav } from '../MobileNav/MobileNav'
 import logo from '../../assets/logo.jpeg'
 import styles from './Header.module.css'
 
 /**
- * Structural site header: logo + primary navigation.
- * The logo shown here is a temporary placeholder wiring — final header
- * styling and layout are designed later.
+ * Site header: a compact logo treatment plus the desktop Navigation
+ * (hides itself below the md breakpoint) and MobileNav (hamburger +
+ * panel, shows itself below the md breakpoint).
  */
 export function Header() {
   return (
@@ -17,6 +18,7 @@ export function Header() {
           <img src={logo} alt="VE in Beeld" className={styles.logo} />
         </Link>
         <Navigation />
+        <MobileNav />
       </div>
     </header>
   )

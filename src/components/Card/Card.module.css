@@ -1,0 +1,44 @@
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+/* Add to a Card that wraps a link or otherwise acts as one interactive unit. */
+.interactive:hover {
+  box-shadow: var(--shadow-soft-lg);
+  transform: translateY(-2px);
+}
+
+.offerCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  height: 100%;
+}
+
+.offerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-soft-pink);
+  color: var(--color-primary-strong);
+  margin-bottom: var(--space-xs);
+}
+
+.offerTitle {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+.offerDescription {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: none;
+}
