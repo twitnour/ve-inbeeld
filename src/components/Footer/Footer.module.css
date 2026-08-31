@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--color-sand);
+  color: var(--color-text);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--content-padding-inline);
+  padding-block: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  font-size: var(--font-size-sm);
+}
+
+.links a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--color-primary);
+}
+
+.copyright {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

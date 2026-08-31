@@ -1,0 +1,68 @@
+/*
+  Design tokens for VE in Beeld.
+  Brand colors are fixed — do not add new colors here without explicit
+  instruction. Everything else (spacing, radii, breakpoints, etc.) is a
+  sensible structural default that can be refined during page design.
+*/
+:root {
+  /* Brand colors */
+  --color-background: #f9f1ee;
+  --color-primary: #c7857d;
+  --color-secondary: #c2a38f;
+  --color-soft-pink: #e7beb7;
+  --color-sand: #dcc5b4;
+  --color-text: #191a14;
+
+  /* Derived / functional colors */
+  --color-surface: #ffffff;
+  --color-border: #e4d6cd;
+  --color-text-muted: #5a5b52;
+  --color-focus-ring: var(--color-primary);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-text);
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+
+  --line-height-body: 1.65;
+  --line-height-heading: 1.2;
+
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --content-max-width: 72rem;
+  --content-padding-inline: var(--space-lg);
+
+  /* Radius & elevation */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-full: 999px;
+  --shadow-soft: 0 4px 16px rgba(25, 26, 20, 0.06);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Breakpoints (referenced in comments; media queries use raw px values) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
