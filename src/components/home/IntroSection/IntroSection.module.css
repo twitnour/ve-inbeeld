@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--space-2xl);
+}
+
+.headingCol h2 {
+  margin: 0;
+}
+
+.bodyCol p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

@@ -10,6 +10,8 @@ interface SectionProps {
   /** Content width passed through to the inner PageContainer. */
   width?: ContainerWidth
   as?: ElementType
+  /** Useful as an in-page anchor/scroll target, e.g. for a hero CTA. */
+  id?: string
   className?: string
   children: ReactNode
 }
@@ -23,13 +25,14 @@ export function Section({
   tone = 'default',
   width = 'normal',
   as: Component = 'section',
+  id,
   className,
   children,
 }: SectionProps) {
   const classNames = [styles.section, styles[tone], className].filter(Boolean).join(' ')
 
   return (
-    <Component className={classNames}>
+    <Component id={id} className={classNames}>
       <PageContainer width={width} padded={false}>
         {children}
       </PageContainer>
