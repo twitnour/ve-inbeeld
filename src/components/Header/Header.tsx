@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { paths } from '../../routes/paths'
 import { Navigation } from '../Navigation/Navigation'
 import { MobileNav } from '../MobileNav/MobileNav'
-import logo from '../../assets/logo.jpeg'
+import logo from '../../assets/logo-alt2.webp'
 import styles from './Header.module.css'
 
 /**

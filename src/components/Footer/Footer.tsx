@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, Link2 } from 'lucide-react'
 import { paths } from '../../routes/paths'
-import logo from '../../assets/logo.jpeg'
+import logo from '../../assets/logo-alt2.webp'
 import styles from './Footer.module.css'
 
 /**
