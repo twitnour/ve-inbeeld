@@ -1,0 +1,13 @@
+.control {
+  composes: control from '../FormField/FormField.module.css';
+}
+
+textarea.control {
+  min-height: 9rem;
+  resize: vertical;
+  line-height: var(--line-height-body);
+}
+
+.invalid {
+  border-color: var(--color-primary-strong);
+}

@@ -1,0 +1,31 @@
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.success {
+  background-color: var(--color-soft-pink);
+}
+
+.error {
+  background-color: var(--color-sand);
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 0.15em;
+  color: var(--color-primary-strong);
+}
+
+.text {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.text a {
+  color: var(--color-primary-strong);
+}
