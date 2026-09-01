@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { TextInput } from '../forms/TextInput/TextInput'
 import { SelectField } from '../forms/SelectField/SelectField'
 import { HoneypotField } from '../forms/HoneypotField/HoneypotField'
@@ -12,7 +12,20 @@ import { QUOTE_REQUEST_TYPES } from '../../lib/quoteRequestTypes'
 import styles from './QuoteForm.module.css'
 
 export function QuoteForm() {
-  const onSubmit = useCallback((values: QuoteFormValues) => submitForm('quote', values), [])
+  // Captured once, right after the form mounts — sent along so the
+  // backend can flag implausibly fast submissions as likely spam. Not
+  // a strong signal on its own, just one extra low-cost check next to
+  // the honeypot; see backend/README.md.
+  const startedAtRef = useRef<number | null>(null)
+  useEffect(() => {
+    startedAtRef.current = Date.now()
+  }, [])
+
+  const onSubmit = useCallback(
+    (values: QuoteFormValues) =>
+      submitForm('quote', { ...values, startedAt: String(startedAtRef.current ?? Date.now()) }),
+    [],
+  )
 
   const { values, setValue, setTouchedField, fieldError, status, handleSubmit } = useFormState({
     initialValues: initialQuoteValues,
@@ -145,8 +158,8 @@ export function QuoteForm() {
 
       {status === 'error' && (
         <FormMessage tone="error">
-          Het versturen is niet gelukt. Probeer het later opnieuw of neem rechtstreeks contact op
-          via <a href="mailto:info@veinbeeld.nl">info@veinbeeld.nl</a>.
+          Het versturen is helaas niet gelukt. Probeer het later opnieuw of neem rechtstreeks
+          contact op via <a href="mailto:info@veinbeeld.nl">info@veinbeeld.nl</a>.
         </FormMessage>
       )}
 

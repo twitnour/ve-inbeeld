@@ -1,0 +1,20 @@
+# Defense in depth for shared hosting: if vendor/, src/, config.php,
+# composer.json and composer.lock end up reachable under the web root
+# (see "Simple deployment" in backend/README.md), this denies direct
+# HTTP access to them while leaving api/contact.php itself untouched.
+#
+# Deploy this file to whatever directory ends up containing vendor/,
+# src/ and config.php as siblings of api/ (see backend/README.md — in
+# the simple deployment that's your site's document root). If that
+# directory already has a .htaccess (e.g. for client-side-routing
+# fallback rules), merge these rules into it instead of overwriting it.
+#
+# Not needed at all if vendor/, src/ and config.php are deployed
+# outside the web root entirely (the recommended setup where your host
+# allows it) — nothing under a non-web-servable directory needs an
+# .htaccess to stay unreachable.
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/(vendor|src)(/|$) [OR]
+RewriteCond %{REQUEST_URI} ^/(config\.php|composer\.(json|lock))$
+RewriteRule .* - [F,L]

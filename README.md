@@ -37,12 +37,28 @@ npm run lint     # run oxlint
 src/
   assets/         static assets (e.g. the temporary logo)
   components/     reusable structural components (Header, TopBar,
-                  Navigation, Footer, PageContainer)
+                  Navigation, Footer, PageContainer, forms/…)
   layouts/        route layout shells (MainLayout)
-  pages/          one folder per route, placeholder content for now
+  lib/            form validation, submission and option-list helpers
+  hooks/          shared hooks (usePageMeta, useFormState, …)
+  pages/          one folder per route
   routes/         route path constants and the router configuration
   styles/         global CSS variables and base styles
+backend/          PHP + PHPMailer mail backend for the Contact and
+                  Offerte forms — see backend/README.md
 ```
+
+## Contact & Offerte forms (email delivery)
+
+The Contact and Offerte-aanvragen forms send email through a small PHP
+backend over SMTP (`backend/`) — not a platform-specific serverless
+function, so the site stays deployable to conventional/shared hosting.
+`npm run build` still produces a plain static `dist/`; the backend is a
+separate deployment step.
+
+Full setup (Composer/PHPMailer, local dev with both servers running,
+SMTP configuration, production deployment, security notes) is in
+**[`backend/README.md`](./backend/README.md)**.
 
 ## Styling system
 
