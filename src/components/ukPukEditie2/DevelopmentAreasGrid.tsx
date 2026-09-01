@@ -1,8 +1,7 @@
 import { Calculator, Compass, Heart, MessageCircle, PersonStanding, Palette, Tablet } from 'lucide-react'
 import { Section } from '../Section/Section'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
-import { Card } from '../Card/Card'
-import styles from './DevelopmentAreasGrid.module.css'
+import { ExampleGrid } from '../content/ExampleGrid/ExampleGrid'
 
 const areas = [
   { icon: Heart, label: 'Sociaal-emotionele ontwikkeling' },
@@ -26,14 +25,7 @@ export function DevelopmentAreasGrid() {
         Met het ontwikkelingsaanbod van Uk &amp; Puk worden zeven ontwikkelingsgebieden
         gestimuleerd.
       </SectionIntro>
-      <div className={styles.grid}>
-        {areas.map(({ icon: Icon, label }) => (
-          <Card key={label} className={styles.card}>
-            <Icon size={20} aria-hidden="true" className={styles.icon} />
-            <span className={styles.label}>{label}</span>
-          </Card>
-        ))}
-      </div>
+      <ExampleGrid items={areas} />
     </Section>
   )
 }
