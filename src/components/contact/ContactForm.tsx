@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { TextInput } from '../forms/TextInput/TextInput'
+import { SelectField } from '../forms/SelectField/SelectField'
 import { HoneypotField } from '../forms/HoneypotField/HoneypotField'
 import { FormMessage } from '../forms/FormMessage/FormMessage'
 import { FormRow } from '../forms/FormSection/FormSection'
@@ -7,6 +8,7 @@ import { Button } from '../Button/Button'
 import { useFormState } from '../../hooks/useFormState'
 import { initialContactValues, validateContactForm, type ContactFormValues } from '../../lib/formValidation'
 import { submitForm } from '../../lib/formSubmission'
+import { CONTACT_SUBJECT_OPTIONS } from '../../lib/contactSubjectOptions'
 import styles from './ContactForm.module.css'
 
 export function ContactForm() {
@@ -81,10 +83,12 @@ export function ContactForm() {
         />
       </FormRow>
 
-      <TextInput
+      <SelectField
         id="contact-subject"
         name="subject"
         label="Onderwerp"
+        placeholder="Kies een optie"
+        options={CONTACT_SUBJECT_OPTIONS}
         value={values.subject}
         onChange={(value) => setValue('subject', value)}
         onBlur={() => setTouchedField('subject')}
