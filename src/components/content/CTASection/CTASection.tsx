@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react'
 import { Section, type SectionTone } from '../../Section/Section'
-import { Button } from '../../Button/Button'
+import { Button, type ButtonVariant } from '../../Button/Button'
 import styles from './CTASection.module.css'
 
 interface CTASectionAction {
   label: string
-  to: string
+  /** A route to navigate to. Provide exactly one of `to`/`href`. */
+  to?: string
+  /** An in-page or cross-page anchor, e.g. "/#aanbod". */
+  href?: string
 }
 
 interface CTASectionProps {
@@ -14,6 +17,23 @@ interface CTASectionProps {
   primaryAction: CTASectionAction
   secondaryAction?: CTASectionAction
   tone?: SectionTone
+}
+
+function ActionButton({ action, variant }: { action: CTASectionAction; variant: ButtonVariant }) {
+  if (action.href) {
+    return (
+      <Button href={action.href} variant={variant}>
+        {action.label}
+      </Button>
+    )
+  }
+
+  // Every caller provides `to` or `href` — `to` is guaranteed here.
+  return (
+    <Button to={action.to as string} variant={variant}>
+      {action.label}
+    </Button>
+  )
 }
 
 /**
@@ -35,14 +55,8 @@ export function CTASection({
         <h2>{heading}</h2>
         <p>{children}</p>
         <div className={styles.actions}>
-          <Button to={primaryAction.to} variant="primary">
-            {primaryAction.label}
-          </Button>
-          {secondaryAction && (
-            <Button to={secondaryAction.to} variant="secondary">
-              {secondaryAction.label}
-            </Button>
-          )}
+          <ActionButton action={primaryAction} variant="primary" />
+          {secondaryAction && <ActionButton action={secondaryAction} variant="secondary" />}
         </div>
       </div>
     </Section>

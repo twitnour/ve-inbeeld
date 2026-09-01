@@ -1,12 +1,5 @@
-.statement {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: var(--font-size-2xl);
-  line-height: 1.3;
-  color: var(--color-text);
-  max-width: 34ch;
-  margin: 0 auto var(--space-xl);
-  text-align: center;
+.statementWrap {
+  margin-bottom: var(--space-xl);
 }
 
 .features {
