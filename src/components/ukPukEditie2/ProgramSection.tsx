@@ -1,8 +1,23 @@
 import { CalendarDays, MapPin, Users } from 'lucide-react'
 import { Section } from '../Section/Section'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
-import { TrainingTopicsGrid } from './TrainingTopicsGrid'
+import { TopicsGrid } from '../content/TopicsGrid/TopicsGrid'
 import styles from './ProgramSection.module.css'
+
+const topics = [
+  'Introductie Uk & Puk',
+  'Plannen van thema’s',
+  'Pedagogische kwaliteit',
+  'Doelgericht en planmatig werken',
+  'Leesplezier en boeken',
+  'Spraak- en taalontwikkeling',
+  'Sociaal-emotionele ontwikkeling',
+  'Spel, spelbegeleiding en speelleeromgeving',
+  'Motorische en zintuiglijke ontwikkeling',
+  'Rekenontwikkeling',
+  'Kunstzinnige ontwikkeling',
+  'Samenwerken met ouders en andere partners',
+]
 
 const infoRow = [
   { icon: CalendarDays, label: 'Startdatum van de training: in overleg' },
@@ -12,8 +27,8 @@ const infoRow = [
 
 /**
  * "Het programma van de training" — the training's structure, the
- * 12-topic curriculum (via TrainingTopicsGrid) and a compact row of
- * practical participation details.
+ * 12-topic curriculum (via TopicsGrid) and a compact row of practical
+ * participation details.
  */
 export function ProgramSection() {
   return (
@@ -25,7 +40,7 @@ export function ProgramSection() {
         persoonlijk ontwikkelplan bij.
       </SectionIntro>
 
-      <TrainingTopicsGrid />
+      <TopicsGrid topics={topics} />
 
       <div className={styles.infoRow}>
         {infoRow.map(({ icon: Icon, label }) => (

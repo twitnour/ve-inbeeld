@@ -57,6 +57,11 @@ export function UkPukEditie2Page() {
         lead="VE in Beeld biedt het complete Uk & Puk-programma voor professionals die werken met baby's, dreumesen en peuters van 0 tot 4 jaar — speels en doelgericht, voor gebruik binnen de peuteropvang, kinderopvang en kindcentra."
         primaryAction={{ label: 'Vraag een offerte aan', to: paths.offerteAanvragen }}
         secondaryAction={{ label: 'Neem contact op', to: paths.contact }}
+        breadcrumbs={[
+          { label: 'Home', to: paths.home },
+          { label: 'VVE trainingen', to: paths.vveTrainingen.index },
+          { label: 'Uk & Puk editie 2' },
+        ]}
       />
 
       <WhatIsSection />

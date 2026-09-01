@@ -1,5 +1,6 @@
 import { Section } from '../Section/Section'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
+import { InfoHighlights } from '../content/InfoHighlights/InfoHighlights'
 import styles from './PracticeSection.module.css'
 
 const structure = [
@@ -32,17 +33,7 @@ export function PracticeSection() {
         </p>
       </div>
 
-      <div className={styles.structure}>
-        <h3 className={styles.structureHeading}>Hoe is een thema opgebouwd?</h3>
-        <div className={styles.stats}>
-          {structure.map((item) => (
-            <div className={styles.stat} key={item.label}>
-              <span className={styles.statValue}>{item.value}</span>
-              <span className={styles.statLabel}>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <InfoHighlights heading="Hoe is een thema opgebouwd?" items={structure} />
 
       <div className={styles.body}>
         <p>
