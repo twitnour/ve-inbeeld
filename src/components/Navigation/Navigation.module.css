@@ -101,10 +101,16 @@
 
 .dropdown {
   position: absolute;
+  /* Flush against the trigger (no margin-top gap): the li's hover box
+     only covers the trigger row since this panel is absolutely
+     positioned, so any gap here becomes a dead zone — the cursor
+     leaves the li's hoverable area while crossing it and the dropdown
+     closes before it reaches the menu. padding-top compensates for
+     the visual spacing instead. */
   top: 100%;
   left: 0;
-  margin: var(--space-xs) 0 0;
-  padding: var(--space-xs);
+  margin: 0;
+  padding: var(--space-md) var(--space-xs) var(--space-xs);
   min-width: 17rem;
   list-style: none;
   background-color: var(--color-surface);
