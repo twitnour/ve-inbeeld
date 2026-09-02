@@ -32,6 +32,21 @@ npm run preview  # preview the production build locally
 npm run lint     # run oxlint
 ```
 
+## Business info (contact email, phone, LinkedIn, KvK)
+
+The public business-info values shown across the site (TopBar, Footer,
+Contact page, form error messages) live in one place: **`.env`** at the
+project root, read through `src/lib/businessInfo.ts`. Edit `.env`
+directly to update the contact email, phone number, LinkedIn URL or KvK
+number — `.env` is committed to git on purpose (none of these are
+secret; they're all publicly shown on the live site regardless).
+
+**This is a static build with no server-side rendering** — changing
+`.env` only takes effect after `npm run build` and redeploying `dist/`,
+not instantly, unlike the PHP backend's `config.php`. If you change the
+contact email, also update `CONTACT_TO_EMAIL`/`CONTACT_FROM_EMAIL` in
+`backend/config.php` by hand — the two systems aren't linked.
+
 ## Project structure
 
 ```

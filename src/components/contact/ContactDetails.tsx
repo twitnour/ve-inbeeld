@@ -1,29 +1,30 @@
 import { Link2, Mail, Phone } from 'lucide-react'
+import { businessInfo } from '../../lib/businessInfo'
 import styles from './ContactDetails.module.css'
 
 /**
  * The clickable ways to reach Marsha directly — mailto/tel/external
- * links, using the same placeholder phone/LinkedIn already used
- * elsewhere on the site (TopBar, Footer).
+ * links; see src/lib/businessInfo.ts for where the values come from
+ * (the same source TopBar and Footer read from).
  */
 export function ContactDetails() {
   return (
     <ul className={styles.list}>
       <li>
-        <a href="mailto:info@veinbeeld.nl" className={styles.link}>
+        <a href={`mailto:${businessInfo.contactEmail}`} className={styles.link}>
           <Mail size={18} aria-hidden="true" />
-          <span>info@veinbeeld.nl</span>
+          <span>{businessInfo.contactEmail}</span>
         </a>
       </li>
       <li>
-        <a href="tel:+310000000000" className={styles.link}>
+        <a href={businessInfo.phoneHref} className={styles.link}>
           <Phone size={18} aria-hidden="true" />
-          <span>+31 6 00 00 00 00</span>
+          <span>{businessInfo.phoneNumber}</span>
         </a>
       </li>
       <li>
         <a
-          href="https://www.linkedin.com/"
+          href={businessInfo.linkedinUrl}
           target="_blank"
           rel="noreferrer noopener"
           className={styles.link}

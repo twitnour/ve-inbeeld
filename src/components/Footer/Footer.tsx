@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, Link2 } from 'lucide-react'
 import { paths } from '../../routes/paths'
+import { businessInfo } from '../../lib/businessInfo'
 import logo from '../../assets/logo-alt2.webp'
 import styles from './Footer.module.css'
 
@@ -37,20 +38,20 @@ export function Footer() {
           <h2 className={styles.heading}>Contact</h2>
           <ul className={styles.plainList}>
             <li>
-              <a href="mailto:info@veinbeeld.nl" className={styles.contactLink}>
+              <a href={`mailto:${businessInfo.contactEmail}`} className={styles.contactLink}>
                 <Mail size={16} aria-hidden="true" />
-                <span>info@veinbeeld.nl</span>
+                <span>{businessInfo.contactEmail}</span>
               </a>
             </li>
             <li>
-              <a href="tel:+310000000000" className={styles.contactLink}>
+              <a href={businessInfo.phoneHref} className={styles.contactLink}>
                 <Phone size={16} aria-hidden="true" />
-                <span>+31 6 00 00 00 00</span>
+                <span>{businessInfo.phoneNumber}</span>
               </a>
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/"
+                href={businessInfo.linkedinUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 className={styles.contactLink}
@@ -67,7 +68,7 @@ export function Footer() {
           <h2 className={styles.heading}>Bedrijfsgegevens</h2>
           <ul className={styles.plainList}>
             <li>Marsha Lispet</li>
-            <li>KvK 00000000</li>
+            <li>KvK {businessInfo.kvkNumber}</li>
           </ul>
         </div>
       </div>

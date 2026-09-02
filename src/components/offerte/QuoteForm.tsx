@@ -9,6 +9,7 @@ import { useFormState } from '../../hooks/useFormState'
 import { initialQuoteValues, validateQuoteForm, type QuoteFormValues } from '../../lib/formValidation'
 import { submitForm } from '../../lib/formSubmission'
 import { QUOTE_REQUEST_TYPES } from '../../lib/quoteRequestTypes'
+import { businessInfo } from '../../lib/businessInfo'
 import styles from './QuoteForm.module.css'
 
 export function QuoteForm() {
@@ -159,7 +160,8 @@ export function QuoteForm() {
       {status === 'error' && (
         <FormMessage tone="error">
           Het versturen is helaas niet gelukt. Probeer het later opnieuw of neem rechtstreeks
-          contact op via <a href="mailto:info@veinbeeld.nl">info@veinbeeld.nl</a>.
+          contact op via{' '}
+          <a href={`mailto:${businessInfo.contactEmail}`}>{businessInfo.contactEmail}</a>.
         </FormMessage>
       )}
 

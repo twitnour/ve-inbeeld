@@ -9,6 +9,7 @@ import { useFormState } from '../../hooks/useFormState'
 import { initialContactValues, validateContactForm, type ContactFormValues } from '../../lib/formValidation'
 import { submitForm } from '../../lib/formSubmission'
 import { CONTACT_SUBJECT_OPTIONS } from '../../lib/contactSubjectOptions'
+import { businessInfo } from '../../lib/businessInfo'
 import styles from './ContactForm.module.css'
 
 export function ContactForm() {
@@ -128,7 +129,8 @@ export function ContactForm() {
       {status === 'error' && (
         <FormMessage tone="error">
           Het versturen is helaas niet gelukt. Probeer het later opnieuw of neem rechtstreeks
-          contact op via <a href="mailto:info@veinbeeld.nl">info@veinbeeld.nl</a>.
+          contact op via{' '}
+          <a href={`mailto:${businessInfo.contactEmail}`}>{businessInfo.contactEmail}</a>.
         </FormMessage>
       )}
 

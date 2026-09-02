@@ -6,6 +6,7 @@ import { ContactDetails } from '../../components/contact/ContactDetails'
 import { ContactForm } from '../../components/contact/ContactForm'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import { businessInfo } from '../../lib/businessInfo'
 import styles from './ContactPage.module.css'
 
 export function ContactPage() {
@@ -33,7 +34,7 @@ export function ContactPage() {
         <ContactDetails />
         <dl className={styles.business}>
           <dt>KvK</dt>
-          <dd>00000000</dd>
+          <dd>{businessInfo.kvkNumber}</dd>
         </dl>
       </SplitContentSection>
 
