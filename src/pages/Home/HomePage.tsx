@@ -6,6 +6,7 @@ import { QualitiesSection } from '../../components/home/QualitiesSection/Qualiti
 import { FinalCta } from '../../components/home/FinalCta/FinalCta'
 import { Reveal } from '../../components/Reveal/Reveal'
 import { useScrollToHash } from '../../hooks/useScrollToHash'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 /**
  * The homepage. Hero renders immediately (no reveal) since it's above
@@ -16,6 +17,11 @@ import { useScrollToHash } from '../../hooks/useScrollToHash'
  */
 export function HomePage() {
   useScrollToHash()
+  usePageMeta({
+    title: 'VE in Beeld | Training, coaching en workshops',
+    description:
+      'VE in Beeld biedt training, nascholing, beeldcoaching en workshops voor pedagogisch professionals in de kinderopvang en voorschoolse educatie.',
+  })
 
   return (
     <>

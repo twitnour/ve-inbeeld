@@ -8,7 +8,7 @@ export function WhatIsSection() {
   return (
     <EditorialSection heading="Spelend leren met een doelgerichte aanpak">
       <p>
-        Uk &amp; Puk editie 2 is gericht op baby&apos;s, dreumesen en peuters van 0 tot
+        Uk &amp; Puk editie 2 is gericht op baby’s, dreumesen en peuters van 0 tot
         4 jaar en wordt ingezet binnen de peuteropvang, kinderopvang en kindcentra. De
         methode stimuleert de brede ontwikkeling van jonge kinderen op een speelse en
         doelgerichte manier.

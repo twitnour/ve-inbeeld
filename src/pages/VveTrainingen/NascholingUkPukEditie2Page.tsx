@@ -5,11 +5,18 @@ import { InfoHighlights } from '../../components/content/InfoHighlights/InfoHigh
 import { TopicsGrid } from '../../components/content/TopicsGrid/TopicsGrid'
 import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 
 const onderwerpen = ['Nieuwe thema’s', 'De 4 D’s', 'Nieuwe formulieren', 'Inhoudelijke veranderingen']
 
 export function NascholingUkPukEditie2Page() {
+  usePageMeta({
+    title: 'Nascholing Uk & Puk editie 2 | VE in Beeld',
+    description:
+      'Twee interactieve dagdelen nascholing voor Uk & Puk editie 2, gericht op het vernieuwde programma en de directe toepassing op de groep.',
+  })
+
   return (
     <>
       <PageHero

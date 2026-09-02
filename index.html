@@ -4,13 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/src/assets/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f9f1ee" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>VE in Beeld</title>
+    <title>VE in Beeld | Training, coaching en workshops</title>
+    <!--
+      Static defaults for crawlers that don't execute JavaScript (most
+      social-share link previews). Every route also sets its own
+      title/description/canonical once React mounts (see
+      src/hooks/usePageMeta.ts) — that covers Google and any other
+      JS-executing crawler, but not a plain Open Graph scraper, which
+      only ever sees what's written here. Without server-side
+      rendering, a real per-page static description isn't possible, so
+      this intentionally describes the site as a whole.
+    -->
+    <meta
+      name="description"
+      content="VE in Beeld biedt training, nascholing, beeldcoaching en workshops voor pedagogisch professionals in de kinderopvang en voorschoolse educatie."
+    />
+    <link rel="canonical" href="https://veinbeeld.nl/" />
+    <meta property="og:site_name" content="VE in Beeld" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:url" content="https://veinbeeld.nl/" />
+    <meta property="og:title" content="VE in Beeld | Training, coaching en workshops" />
+    <meta
+      property="og:description"
+      content="VE in Beeld biedt training, nascholing, beeldcoaching en workshops voor pedagogisch professionals in de kinderopvang en voorschoolse educatie."
+    />
+    <!-- Served from public/ (stable, unhashed path) rather than an
+         imported src/ asset, since Vite doesn't rewrite plain <meta>
+         attributes the way it rewrites <link>/<script> asset refs. -->
+    <meta property="og:image" content="https://veinbeeld.nl/og-image.jpg" />
   </head>
   <body>
     <div id="root"></div>

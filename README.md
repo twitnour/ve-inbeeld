@@ -1,27 +1,28 @@
 # VE in Beeld
 
-Website project foundation for VE in Beeld (Dutch training, workshop and
-beeldcoaching brand by Marsha Lispet).
-
-This is the technical foundation only: routing, structural components and
-the global styling system. Page design and content still need to be built.
+Website for VE in Beeld (Dutch training, workshop and beeldcoaching brand
+by Marsha Lispet): a static Vite/React/TypeScript frontend with a small
+PHP/SMTP backend for the Contact and Offerte-aanvragen forms.
 
 ## Tech stack
 
-- [Vite](https://vite.dev/)
-- [React](https://react.dev/) + TypeScript
+- [Vite](https://vite.dev/) + [React](https://react.dev/) + TypeScript
 - [React Router](https://reactrouter.com/)
 - CSS Modules + a global CSS variables system
 - [Lucide React](https://lucide.dev/) for icons
+- PHP + [PHPMailer](https://github.com/PHPMailer/PHPMailer) (SMTP) for form email delivery — see `backend/`
 
-## Getting started
+## Getting started (frontend)
 
 ```bash
 npm install
 npm run dev
 ```
 
-The app runs at `http://localhost:5173` by default.
+The app runs at `http://localhost:5173` by default. The Contact and
+Offerte forms need the PHP backend running too — see
+**[`backend/README.md`](./backend/README.md)** for the second terminal
+command and full local full-stack setup.
 
 Other scripts:
 
@@ -35,15 +36,17 @@ npm run lint     # run oxlint
 
 ```
 src/
-  assets/         static assets (e.g. the temporary logo)
-  components/     reusable structural components (Header, TopBar,
-                  Navigation, Footer, PageContainer, forms/…)
+  assets/         static assets (logo variants)
+  components/     reusable structural + content components (Header,
+                  TopBar, Navigation, Footer, PageContainer, forms/…)
   layouts/        route layout shells (MainLayout)
   lib/            form validation, submission and option-list helpers
   hooks/          shared hooks (usePageMeta, useFormState, …)
   pages/          one folder per route
   routes/         route path constants and the router configuration
   styles/         global CSS variables and base styles
+public/           static files served as-is: robots.txt, sitemap.xml,
+                  .htaccess (SPA routing fallback + /api passthrough)
 backend/          PHP + PHPMailer mail backend for the Contact and
                   Offerte forms — see backend/README.md
 ```
@@ -59,6 +62,46 @@ separate deployment step.
 Full setup (Composer/PHPMailer, local dev with both servers running,
 SMTP configuration, production deployment, security notes) is in
 **[`backend/README.md`](./backend/README.md)**.
+
+## Production deployment
+
+```bash
+# Frontend
+npm install
+npm run build       # → dist/
+
+# Backend
+cd backend
+composer install    # → backend/vendor/
+```
+
+Upload to your web host:
+
+1. Everything in `dist/` → your site's document root (this includes
+   `index.html`, hashed `assets/`, `robots.txt`, `sitemap.xml` and
+   `.htaccess` — the last one makes React Router's client-side routes
+   work when opened directly, and explicitly leaves `/api/*` alone).
+2. `backend/api/`, `backend/src/`, `backend/vendor/` and a real
+   `backend/config.php` (copied from `backend/config.example.php` and
+   filled in with production SMTP values — **never commit this file**)
+   → merged into that same document root, so `api/contact.php` ends up
+   reachable at `/api/contact.php`.
+
+Full details — including a more secure layout that keeps
+`vendor/`/`src/`/`config.php` outside the public web root, PHP version
+and extension requirements, and every SMTP config key — are in
+**[`backend/README.md`](./backend/README.md)**.
+
+## SEO
+
+Each page sets its own title, meta description, canonical link and
+basic Open Graph tags at runtime (`src/hooks/usePageMeta.ts`);
+`index.html` carries static site-wide defaults for crawlers that don't
+run JavaScript. `public/robots.txt` and `public/sitemap.xml` reference
+the production domain (`https://veinbeeld.nl`) and list only real
+public routes — the `/design-system` route is excluded from production
+builds entirely (see `src/routes/router.tsx`), not just left out of the
+sitemap.
 
 ## Styling system
 

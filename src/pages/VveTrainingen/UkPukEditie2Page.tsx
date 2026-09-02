@@ -11,6 +11,7 @@ import { WhatIsSection } from '../../components/ukPukEditie2/WhatIsSection'
 import { DevelopmentAreasGrid } from '../../components/ukPukEditie2/DevelopmentAreasGrid'
 import { PracticeSection } from '../../components/ukPukEditie2/PracticeSection'
 import { ProgramSection } from '../../components/ukPukEditie2/ProgramSection'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 
 const practicalInfoBlocks: PracticalInfoBlock[] = [
@@ -49,12 +50,18 @@ const practicalInfoBlocks: PracticalInfoBlock[] = [
 ]
 
 export function UkPukEditie2Page() {
+  usePageMeta({
+    title: 'Uk & Puk editie 2 | VE in Beeld',
+    description:
+      'Het complete Uk & Puk-programma voor professionals die werken met baby’s, dreumesen en peuters van 0 tot 4 jaar, binnen peuteropvang, kinderopvang en kindcentra.',
+  })
+
   return (
     <>
       <PageHero
         eyebrow="VVE trainingen"
         title="Uk & Puk editie 2"
-        lead="VE in Beeld biedt het complete Uk & Puk-programma voor professionals die werken met baby's, dreumesen en peuters van 0 tot 4 jaar — speels en doelgericht, voor gebruik binnen de peuteropvang, kinderopvang en kindcentra."
+        lead="VE in Beeld biedt het complete Uk & Puk-programma voor professionals die werken met baby’s, dreumesen en peuters van 0 tot 4 jaar — speels en doelgericht, voor gebruik binnen de peuteropvang, kinderopvang en kindcentra."
         primaryAction={{ label: 'Vraag een offerte aan', to: paths.offerteAanvragen }}
         secondaryAction={{ label: 'Neem contact op', to: paths.contact }}
         breadcrumbs={[

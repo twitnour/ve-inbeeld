@@ -29,6 +29,7 @@ import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
 import { ImagePlaceholder } from '../../components/ImagePlaceholder/ImagePlaceholder'
 import { DirectionsIntro } from '../../components/workshops/DirectionsIntro'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 import styles from './WorkshopsPage.module.css'
 
@@ -65,6 +66,12 @@ const occasions = [
 ]
 
 export function WorkshopsPage() {
+  usePageMeta({
+    title: 'Workshops | VE in Beeld',
+    description:
+      'Enthousiaste en interactieve workshops voor pedagogische professionals, én creatieve workshops voor kinderen — verzorgd door VE in Beeld.',
+  })
+
   return (
     <>
       <PageHero

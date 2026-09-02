@@ -31,7 +31,14 @@ export const router = createBrowserRouter([
       { path: paths.overMij, element: <OverMijPage /> },
       { path: paths.contact, element: <ContactPage /> },
       { path: paths.offerteAanvragen, element: <OfferteAanvragenPage /> },
-      { path: paths.designSystem, element: <DesignSystemPage /> },
+      // Dev-only visual language reference — never part of a production
+      // build, so it can't be discovered or linked once deployed (see
+      // claude.md, "VISUAL DESIGN SYSTEM"). import.meta.env.DEV is
+      // statically known at build time, so `npm run build` doesn't even
+      // include DesignSystemPage's module in the output bundle.
+      ...(import.meta.env.DEV
+        ? [{ path: paths.designSystem, element: <DesignSystemPage /> }]
+        : []),
       { path: '*', element: <NotFoundPage /> },
     ],
   },

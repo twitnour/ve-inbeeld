@@ -1,5 +1,6 @@
 import { PageHero } from '../../components/content/PageHero/PageHero'
 import { CTASection } from '../../components/content/CTASection/CTASection'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 
 /**
@@ -8,6 +9,11 @@ import { paths } from '../../routes/paths'
  * rather than inventing a programme, duration or target audience.
  */
 export function HerscholingPage() {
+  usePageMeta({
+    title: 'Herscholing | VE in Beeld',
+    description: 'Informatie over het herscholingsaanbod van VE in Beeld volgt binnenkort.',
+  })
+
   return (
     <>
       <PageHero

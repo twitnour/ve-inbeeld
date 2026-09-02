@@ -24,8 +24,12 @@ backend/
   vendor/                  Composer dependencies (git-ignored, generated)
   composer.json / .lock
   config.example.php       template — copy to config.php, fill in, never commit
-  .htaccess                defense-in-depth for shared hosting (see below)
 ```
+
+The Apache config that makes both this endpoint and React Router's
+client-side routes work on shared hosting lives at
+[`public/.htaccess`](../public/.htaccess) — see "Production deployment"
+below.
 
 `vendor/`, `src/` and `config.php` are only ever required *from inside
 `src/Config.php` and `api/contact.php`* relative to their own file
@@ -127,7 +131,9 @@ npm run build
 ```
 
 produces a plain static site in `dist/` — no PHP, no `vendor/`, nothing
-backend-related. `backend/` is deployed as a separate step.
+backend-related except `dist/.htaccess` (copied from `public/.htaccess`,
+see below) plus `dist/robots.txt` and `dist/sitemap.xml`. `backend/`
+itself is deployed as a separate step.
 
 ## Production deployment (conventional/shared hosting)
 
@@ -146,10 +152,15 @@ Composer) so `backend/vendor/` exists, then upload:
   with this approach — just upload the already-built `vendor/` folder.
 
 This is the **simple deployment**: one set of files, works over plain
-FTP. `backend/.htaccess` (Apache) denies direct web access to
-`vendor/`, `src/`, `config.php` and `composer.*` in this layout — copy
-it to the same directory those end up in (merge it into an existing
-`.htaccess` there if one already exists, rather than overwriting it).
+FTP. `dist/.htaccess` (copied automatically from `public/.htaccess` on
+every `npm run build`, so it's already sitting in your document root
+once you upload `dist/`) both makes React Router's client-side routes
+work when opened directly (see "Routing / static hosting" below) *and*
+denies direct web access to `vendor/`, `src/`, `config.php` and
+`composer.*` in this layout — no separate file or manual merge needed
+for the common case. If your document root somehow already has its own
+unrelated `.htaccess`, merge the two rather than letting one overwrite
+the other.
 
 **More secure deployment**, for hosts that let you place files outside
 the public web root (common on cPanel: your home directory sits one
@@ -171,8 +182,35 @@ path of `~/veinbeeld-backend` (however your host lets you set env
 vars) — `api/contact.php` reads it to find `vendor/autoload.php`, and
 `Config.php` finds `config.php` and `src/` the same way regardless,
 since those always stay together as one unit. With this layout nothing
-sensitive is reachable by URL at all, and `backend/.htaccess` isn't
-needed.
+sensitive is reachable by URL at all, and `dist/.htaccess`'s
+`vendor`/`src`/`config.php` deny rules are simply inert (those paths
+never exist under the web root to match).
+
+## Routing / static hosting
+
+`dist/.htaccess` also carries the React Router fallback: any request
+that isn't a real file/directory and doesn't start with `/api/` is
+served `index.html`, so opening `/over-mij` or `/contact` directly (or
+reloading on them) works instead of the server returning a real 404 —
+`/api/contact.php` is explicitly excluded from that rewrite and always
+reaches PHP. This is Apache-specific (`mod_rewrite`, enabled on
+virtually all shared hosting); an Nginx or other host needs the
+equivalent rewrite in its own config instead.
+
+One inherent limitation of a routing setup with no server-side
+rendering: a truly nonexistent path still gets a `200` response (it
+renders the app's own branded not-found page client-side), not a real
+HTTP `404` — search engines that execute JavaScript still see the
+page's `noindex` meta tag, but this isn't a substitute for a real
+`404` status. Fixing that would require SSR, which is out of scope.
+
+## PHP requirements
+
+- PHP **8.1 or newer** (see `composer.json`).
+- The `openssl` extension, for STARTTLS/TLS SMTP connections — enabled
+  by default on effectively all PHP hosting.
+- No other non-default extensions; PHPMailer's SMTP transport uses
+  PHP's built-in streams.
 
 ## Security notes
 

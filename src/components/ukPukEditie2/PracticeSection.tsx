@@ -24,7 +24,7 @@ export function PracticeSection() {
           Spel is essentieel voor de ontwikkeling van jonge kinderen en vormt het
           uitgangspunt van Uk &amp; Puk. Activiteiten stimuleren de zeven
           ontwikkelingsgebieden en sluiten steeds aan bij het ontwikkelingsniveau van
-          baby&apos;s, dreumesen en peuters.
+          baby’s, dreumesen en peuters.
         </p>
         <p>
           De handpop Puk vormt daarbij een belangrijke schakel tussen de kinderen en de
@@ -38,7 +38,7 @@ export function PracticeSection() {
       <div className={styles.body}>
         <p>
           Activiteiten worden zowel in kleine als in grote groepen aangeboden en sluiten
-          aan bij de SLO-doelen. De thema&apos;s zelf sluiten aan bij de belevingswereld
+          aan bij de SLO-doelen. De thema’s zelf sluiten aan bij de belevingswereld
           van jonge kinderen, zodat leren betekenisvol en speels blijft.
         </p>
       </div>

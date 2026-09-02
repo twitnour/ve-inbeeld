@@ -78,7 +78,15 @@ export function Navigation() {
                   aria-expanded={dropdownOpen}
                   aria-controls={submenuId}
                   aria-label={`Submenu ${item.label} ${dropdownOpen ? 'sluiten' : 'tonen'}`}
-                  onClick={() => setDropdownOpen((open) => !open)}
+                  // Always opens rather than toggling: the mouse has to
+                  // pass over the parent <li> to reach this button,
+                  // which fires onMouseEnter and sets dropdownOpen true
+                  // *before* the click's own handler runs — a toggle
+                  // here would then immediately flip it back to false,
+                  // so a mouse user hovering then clicking would see it
+                  // close instead of stay open. Closing is already
+                  // covered by mouseleave, Escape and blur.
+                  onClick={() => setDropdownOpen(true)}
                 >
                   <ChevronDown
                     size={16}

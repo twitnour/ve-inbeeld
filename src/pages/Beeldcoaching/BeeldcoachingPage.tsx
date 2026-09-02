@@ -6,6 +6,7 @@ import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
 import { PositiveSection } from '../../components/beeldcoaching/PositiveSection'
 import { VideoVisual } from '../../components/beeldcoaching/VideoVisual'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 
 const steps = [
@@ -28,6 +29,12 @@ const steps = [
 ]
 
 export function BeeldcoachingPage() {
+  usePageMeta({
+    title: 'Beeldcoaching op maat | VE in Beeld',
+    description:
+      'Video Interactie Begeleiding (VIB) helpt pedagogisch professionals inzicht te krijgen in hun communicatie, interacties en pedagogisch handelen.',
+  })
+
   return (
     <>
       <PageHero
