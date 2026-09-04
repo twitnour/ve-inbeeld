@@ -16,9 +16,11 @@ export function Hero() {
           <span className="eyebrow">Training • Coaching • Workshops</span>
           <h1>Groeien in de praktijk van het jonge kind</h1>
           <p className={styles.lead}>
-            VE in Beeld verzorgt praktijkgerichte training, coaching en workshops voor
-            professionals in de kinderopvang en voorschoolse educatie — met een directe
-            vertaalslag naar de dagelijkse praktijk op de groep.
+            VE in Beeld verzorgt praktijkgerichte trainingen, beeldcoaching en workshops voor
+            professionals in de peuterspeelzaal, kinderopvang en kindcentra. Maar ook kinderen
+            krijgen bij VE in Beeld de ruimte om hun beeldende expressie te ontdekken en creatief
+            aan de slag te gaan tijdens inspirerende workshops. Samen bouwen we met plezier en
+            aandacht aan de toekomst van de jonge generatie.
           </p>
           <div className={styles.actions}>
             <Button href="#aanbod" variant="primary">
