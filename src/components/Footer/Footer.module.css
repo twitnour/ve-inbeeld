@@ -19,16 +19,6 @@
   min-width: 0;
 }
 
-.logoLink {
-  display: inline-flex;
-}
-
-.logo {
-  height: 52px;
-  width: auto;
-  margin-bottom: var(--space-sm);
-}
-
 .tagline {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);

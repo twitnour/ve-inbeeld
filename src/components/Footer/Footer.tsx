@@ -1,8 +1,5 @@
-import { Link } from 'react-router-dom'
 import { Mail, Phone, Link2 } from 'lucide-react'
-import { paths } from '../../routes/paths'
 import { businessInfo } from '../../lib/businessInfo'
-import logo from '../../assets/logo-alt2.webp'
 import styles from './Footer.module.css'
 
 /**
@@ -17,9 +14,6 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div className={styles.column}>
-          <Link to={paths.home} className={styles.logoLink} aria-label="VE in Beeld - home">
-            <img src={logo} alt="VE in Beeld" className={styles.logo} />
-          </Link>
           <p className={styles.tagline}>
             Training, workshops en beeldcoaching voor pedagogisch professionals —
             met aandacht, warmte en ruimte om te groeien.
