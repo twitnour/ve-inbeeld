@@ -28,4 +28,3 @@ dist-ssr
 # installs reproducible) — only vendor/ and the real config.php aren't.
 backend/vendor/
 backend/config.php
-.env
