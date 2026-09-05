@@ -7,7 +7,8 @@
  * import.meta.env directly — see that file's doc comment for why.
  */
 interface ImportMetaEnv {
-  readonly VITE_CONTACT_EMAIL: string
+  readonly VITE_CONTACT_EMAIL_USER: string
+  readonly VITE_CONTACT_EMAIL_DOMAIN: string
   readonly VITE_PHONE_NUMBER: string
   readonly VITE_LINKEDIN_URL: string
   readonly VITE_KVK_NUMBER: string
