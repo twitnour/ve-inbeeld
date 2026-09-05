@@ -73,9 +73,9 @@ export function Footer() {
         <p className={styles.copyright}>
           &copy; {year} VE in Beeld. Alle rechten voorbehouden.
         </p>
-        <a href="#" className={styles.privacyLink}>
+        <Link to={paths.privacyverklaring} className={styles.privacyLink}>
           Privacyverklaring
-        </a>
+        </Link>
       </div>
     </footer>
   )
