@@ -1,0 +1,45 @@
+.hero {
+  padding-top: var(--space-2xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.content {
+  max-width: 32rem;
+}
+
+.lead {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}
+
+.imageWrap {
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    max-width: none;
+  }
+
+  .imageWrap {
+    max-width: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: var(--space-lg);
+  }
+}

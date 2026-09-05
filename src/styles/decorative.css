@@ -1,0 +1,56 @@
+/*
+  Decorative CSS-only accents, inspired by the logo's fine circular lines
+  and soft watercolor blush shapes — used sparingly as background
+  texture, never as the main visual event. Apply at most one per section.
+
+  All are `aria-hidden` in markup and ignore pointer events.
+*/
+
+.decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A thin, incomplete circular line — echoes the logo's ring motif. */
+.decor-ring {
+  width: 14rem;
+  height: 14rem;
+  border: 1px solid var(--color-secondary);
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+/* A soft, blurred blush shape reminiscent of the logo's watercolor wash. */
+.decor-bloom {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-soft-pink) 0%, transparent 70%);
+  opacity: 0.5;
+  filter: blur(4px);
+}
+
+/* A single fine horizontal line used to divide or accent content. */
+.decor-line {
+  position: relative;
+  width: 3rem;
+  height: 1px;
+  background-color: var(--color-primary);
+  opacity: 0.6;
+}
+
+/* A short brush-like accent stroke, used behind a heading or eyebrow label. */
+.decor-brushstroke {
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-soft-pink), var(--color-sand));
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .decor-ring,
+  .decor-bloom {
+    transition: transform var(--transition-slow);
+  }
+}

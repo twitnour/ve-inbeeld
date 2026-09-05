@@ -1,0 +1,10 @@
+.journeyQuote {
+  margin-block: var(--space-xl);
+}
+
+.philosophyText {
+  max-width: 34rem;
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}

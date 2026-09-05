@@ -1,0 +1,36 @@
+.placeholder {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-sand);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
+
+.landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.placeholder :global(.decor-ring) {
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+}
+
+.placeholder :global(.decor-line) {
+  position: absolute;
+  left: var(--space-lg);
+  bottom: var(--space-lg);
+  width: 2.5rem;
+}

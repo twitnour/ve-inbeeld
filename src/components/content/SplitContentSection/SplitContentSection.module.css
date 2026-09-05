@@ -1,0 +1,42 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.visual {
+  width: 100%;
+}
+
+/* Reorder only at desktop widths, so mobile reading order always
+   matches the DOM order (content, then visual). */
+@media (min-width: 769px) {
+  .reverse {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .reverse .content {
+    order: 2;
+  }
+
+  .reverse .visual {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .visual {
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+}

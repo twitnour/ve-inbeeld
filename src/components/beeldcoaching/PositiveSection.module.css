@@ -1,0 +1,15 @@
+.statementWrap {
+  margin-bottom: var(--space-xl);
+}
+
+.features {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.closing {
+  max-width: 34rem;
+  margin: var(--space-xl) auto 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}

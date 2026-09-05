@@ -1,0 +1,19 @@
+{
+    "name": "veinbeeld/contact-backend",
+    "description": "Contact & offerte-aanvraag mail backend for the VE in Beeld website (PHP + PHPMailer over SMTP).",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "VeInBeeld\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}

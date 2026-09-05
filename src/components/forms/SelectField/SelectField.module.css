@@ -1,0 +1,23 @@
+.wrap {
+  position: relative;
+}
+
+.control {
+  composes: control from '../FormField/FormField.module.css';
+  appearance: none;
+  padding-right: var(--space-2xl);
+  cursor: pointer;
+}
+
+.invalid {
+  border-color: var(--color-primary-strong);
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: var(--space-md);
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}

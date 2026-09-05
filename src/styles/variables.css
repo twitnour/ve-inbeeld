@@ -1,0 +1,96 @@
+/*
+  Design tokens for VE in Beeld.
+  Brand colors are fixed — do not add new colors here without explicit
+  instruction. Everything else (spacing, radii, breakpoints, etc.) is a
+  sensible structural default that can be refined during page design.
+*/
+:root {
+  /* Brand colors */
+  --color-background: #f9f1ee;
+  --color-primary: #c7857d;
+  --color-secondary: #c2a38f;
+  --color-soft-pink: #e7beb7;
+  --color-sand: #dcc5b4;
+  --color-text: #191a14;
+
+  /* Derived / functional colors */
+  --color-surface: #ffffff;
+  --color-border: #e4d6cd;
+  --color-text-muted: #5a5b52;
+
+  /*
+    Raw --color-primary (#c7857d) on --color-background only reaches
+    ~2.7:1 contrast — enough for a large solid button fill, not enough
+    for text, thin outlines or a focus ring (WCAG needs 4.5:1 / 3:1).
+    This is the same rose accent blended toward --color-text so it stays
+    on-brand while working as text, links, active states and focus
+    rings. Keep using raw --color-primary for solid fills/decoration.
+  */
+  --color-primary-strong: color-mix(in srgb, var(--color-primary) 60%, var(--color-text) 40%);
+
+  --color-focus-ring: var(--color-primary-strong);
+  --color-link: var(--color-primary-strong);
+  --color-link-hover: var(--color-text);
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+
+  --line-height-body: 1.65;
+  --line-height-heading: 1.2;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout — three container widths for different content shapes */
+  --content-max-width-narrow: 42rem; /* article / long-form reading */
+  --content-max-width: 60rem; /* default text-led content */
+  --content-max-width-wide: 78rem; /* section shells, card grids */
+  --content-padding-inline: var(--space-lg);
+
+  /* Radius & elevation */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+  --shadow-soft: 0 4px 16px rgba(25, 26, 20, 0.06);
+  --shadow-soft-lg: 0 8px 28px rgba(25, 26, 20, 0.08);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Breakpoints (referenced in comments; media queries use raw px values) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Section rhythm */
+  --space-section-block: clamp(3rem, 6vw, 6rem);
+
+  /* Stacking order */
+  --z-header: 100;
+  --z-dropdown: 110;
+  --z-mobile-nav: 120;
+}

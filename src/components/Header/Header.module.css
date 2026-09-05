@@ -1,0 +1,109 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  width: 100%;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
+  transition: box-shadow var(--transition-base);
+}
+
+.header[data-scrolled='true'] {
+  box-shadow: var(--shadow-soft);
+}
+
+.inner {
+  max-width: var(--content-max-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--content-padding-inline);
+  padding-block: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  transition: padding-block var(--transition-base);
+}
+
+.header[data-scrolled='true'] .inner {
+  padding-block: var(--space-xs);
+}
+
+/*
+  Logo is enlarged ~60-70% at every breakpoint (see .logo below) while
+  the header's own rendered height stays unchanged: .logoLink carries
+  a matching negative margin-block (split evenly top/bottom) that
+  cancels the added height back out of the flex line's cross-size, so
+  the enlarged logo bleeds symmetrically above and below the header's
+  original top/bottom edges instead of just sitting flush at the top —
+  reads as centered in the bar rather than anchored to it. Checked
+  against TopBar's own content row directly above: even the largest
+  (desktop) upward bleed stays clear of it.
+
+  max-width + overflow-x: hidden give the scrolled/compact state
+  something to collapse toward (opacity alone would leave an empty
+  gap where the logo was); overflow-y stays visible so the vertical
+  bleed isn't clipped.
+*/
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 200px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin-block: -20px;
+  transition:
+    max-width var(--transition-base),
+    opacity var(--transition-base),
+    visibility 0s linear var(--transition-base);
+}
+
+.header[data-scrolled='true'] .logoLink {
+  max-width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.logo {
+  height: 104px;
+  width: auto;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    height: 92px;
+  }
+
+  .logoLink {
+    margin-block: -18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 80px;
+  }
+
+  .logoLink {
+    margin-block: -16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 64px;
+  }
+
+  .logoLink {
+    margin-block: -12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .inner,
+  .logoLink {
+    transition: none;
+  }
+}

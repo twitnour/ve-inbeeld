@@ -1,0 +1,179 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: var(--space-xs) 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background-color: var(--color-primary-strong);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-primary-strong);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.linkActive {
+  color: var(--color-primary-strong);
+  font-weight: var(--font-weight-semibold);
+}
+
+.linkActive::after {
+  transform: scaleX(1);
+}
+
+/* Dropdown trigger: the nav link plus its small disclosure chevron. */
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.disclosure {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.disclosure:hover {
+  color: var(--color-primary-strong);
+}
+
+.disclosure svg {
+  transition: transform var(--transition-base);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+
+.dropdown {
+  position: absolute;
+  /* Flush against the trigger (no margin-top gap): the li's hover box
+     only covers the trigger row since this panel is absolutely
+     positioned, so any gap here becomes a dead zone — the cursor
+     leaves the li's hoverable area while crossing it and the dropdown
+     closes before it reaches the menu. padding-top compensates for
+     the visual spacing instead. */
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: var(--space-md) var(--space-xs) var(--space-xs);
+  min-width: 17rem;
+  list-style: none;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft-lg);
+  z-index: var(--z-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base),
+    visibility 0s linear var(--transition-base);
+}
+
+.dropdown[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.dropdownLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdownLink:hover,
+.dropdownLink:focus-visible {
+  background-color: var(--color-soft-pink);
+  color: var(--color-text);
+}
+
+.dropdownLink.linkActive {
+  background-color: var(--color-sand);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dropdownLink.linkActive::after {
+  content: none;
+}
+
+.cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown {
+    transition: none;
+  }
+}

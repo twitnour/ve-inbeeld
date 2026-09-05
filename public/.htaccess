@@ -1,0 +1,36 @@
+# VE in Beeld — Apache config for the production site root.
+# Ships automatically: `npm run build` copies this file to dist/.htaccess,
+# so it's already in place wherever dist/'s contents are uploaded.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- PHP API: never touched by the rewrite rules below -------------
+  # Requests under /api (currently just /api/contact.php) must reach
+  # PHP directly and must NOT be rewritten to index.html.
+  RewriteRule ^api/ - [L]
+
+  # --- Backend implementation files: defense in depth -----------------
+  # If backend/vendor, backend/src and backend/config.php were deployed
+  # merged into this same site root (the "simple deployment" in
+  # backend/README.md), this denies direct web access to them while
+  # leaving api/contact.php itself untouched. If those instead live
+  # outside the web root (the recommended setup where your host allows
+  # it), these paths simply never match anything here — harmless either
+  # way.
+  RewriteCond %{REQUEST_URI} ^/(vendor|src)(/|$) [OR]
+  RewriteCond %{REQUEST_URI} ^/(config\.php|composer\.(json|lock))$
+  RewriteRule .* - [F,L]
+
+  # --- React Router (client-side routing) fallback --------------------
+  # Serve real files and directories as-is (JS/CSS/images, this file, etc.).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else is a route the React app itself renders (e.g.
+  # /over-mij, /contact) — hand it index.html so opening that URL
+  # directly, or reloading on it, doesn't hit a real server 404.
+  RewriteRule ^ index.html [L]
+</IfModule>
