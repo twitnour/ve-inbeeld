@@ -19,10 +19,43 @@
   min-width: 0;
 }
 
-.tagline {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  max-width: 32ch;
+/* Logo column: centered both ways within its grid cell, which — since
+   this column has no other content — also centers it within that row
+   of the footer. */
+.logoColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+/* Twice the header's logo height at every matching breakpoint (see
+   Header.module.css), so the "twice as big" relationship holds
+   uniformly across screen sizes rather than just on desktop. */
+.logo {
+  height: 208px;
+  width: auto;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    height: 184px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 128px;
+  }
 }
 
 .heading {

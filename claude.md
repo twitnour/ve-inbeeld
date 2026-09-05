@@ -108,10 +108,10 @@ not linked from public navigation).
   it works on hover, click and keyboard/touch. The dropdown itself opens
   on hover, on click, and stays keyboard-operable (Tab to the chevron
   button, Enter/Space toggles, Escape closes and refocuses the chevron).
-  The dropdown's first entry is "VVE trainingen overzicht" linking to the
-  index page — the brief's three listed children didn't include a way
-  back to the overview, so this entry was added to keep that route
-  reachable from navigation.
+  The dropdown only lists the three trainings (Uk & Puk editie 2,
+  Nascholing, Herscholing) — there's no separate "overzicht" entry
+  pointing at the index page, since the "VVE trainingen" label itself
+  already links there.
 - Mobile navigation is a dedicated component, not a shrunk desktop nav:
   a hamburger toggle (icon/label swap between "Menu openen"/"Menu
   sluiten") opens a full-screen panel with its own accordion for "VVE

@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type FocusEvent, type KeyboardEvent } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ChevronDown, FileText } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { paths } from '../../routes/paths'
 import { Button } from '../Button/Button'
 import { navItems } from './navItems'
@@ -97,20 +97,6 @@ export function Navigation() {
               </span>
 
               <ul id={submenuId} className={styles.dropdown} data-open={dropdownOpen}>
-                <li>
-                  <NavLink
-                    to={paths.vveTrainingen.index}
-                    end
-                    className={({ isActive }) =>
-                      isActive
-                        ? `${styles.dropdownLink} ${styles.linkActive}`
-                        : styles.dropdownLink
-                    }
-                  >
-                    <FileText size={16} aria-hidden="true" />
-                    VVE trainingen overzicht
-                  </NavLink>
-                </li>
                 {item.children.map((child) => (
                   <li key={child.to}>
                     <NavLink
