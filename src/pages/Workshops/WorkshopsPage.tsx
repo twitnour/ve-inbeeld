@@ -69,7 +69,7 @@ export function WorkshopsPage() {
   usePageMeta({
     title: 'Workshops | VE in Beeld',
     description:
-      'Enthousiaste en interactieve workshops voor pedagogische professionals, én creatieve workshops voor kinderen — verzorgd door VE in Beeld.',
+      'Enthousiaste en interactieve workshops voor professionals en creatieve workshops voor kinderen — verzorgd door VE in Beeld.',
   })
 
   return (

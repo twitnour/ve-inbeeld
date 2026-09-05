@@ -26,15 +26,15 @@ export function AboutPreview() {
             kinderopvang.
           </p>
           <p>
-            Mijn jarenlange ervaring binnen de kinderopvang is uitgegroeid tot een
-            missie: professionals inspireren, versterken en voorzien van praktische
-            handvatten voor hun dagelijks werk.
+            Mijn jarenlange ervaring binnen de kinderopvang is mijn passie voor het werken 
+            met jonge kinderen uitgegroeid tot een missie, namelijk professionals inspireren, 
+            versterken en voorzien van praktische handvatten voor hun dagelijks werk.
           </p>
           <p>
             Ik geloof dat ieder kind de ruimte verdient om zich optimaal te
             ontwikkelen. Door professionals in hun kracht te zetten, dragen we samen
             bij aan een omgeving waarin kinderen met plezier groeien, ontdekken en
-            leren.
+            leren. Samen maken we de wereld van het jonge kind nog mooier en betekenisvoller.
           </p>
           <Button to={paths.overMij} variant="text" icon={<ArrowRight size={16} />}>
             Meer over Marsha

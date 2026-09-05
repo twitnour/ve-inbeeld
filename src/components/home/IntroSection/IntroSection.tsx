@@ -20,13 +20,13 @@ export function IntroSection() {
           </p>
           <p>
             Tijdens trainingen en workshops draait het niet alleen om kennisoverdracht,
-            maar vooral om hoe professionals die kennis direct kunnen toepassen. Op een
-            interactieve en enthousiaste manier neem ik teams mee in een aanpak die
-            aansluit bij de praktijk, inspireert en meteen bruikbaar is.
+            maar vooral om hoe professionals die kennis direct kunnen toepassen. Op een interactieve 
+            en enthousiaste manier neem ik teams mee en zorg ik voor een training die aansluit bij de 
+            praktijk, inspireert en direct toepasbaar is.
           </p>
           <p>
-            Betrokken, positief en gericht op ontwikkeling — zodat professionals met
-            vertrouwen en plezier aan de slag gaan met voorschoolse educatie.
+            Mijn aanpak is betrokken, positief en gericht op 
+            ontwikkeling, zodat professionals met vertrouwen en plezier aan de slag gaan met voorschoolse educatie.
           </p>
         </div>
       </div>

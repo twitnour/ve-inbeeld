@@ -5,23 +5,23 @@ import styles from './QualitiesSection.module.css'
 const qualities = [
   {
     icon: GraduationCap,
-    title: 'Gespecialiseerde kennis',
-    description: 'Uk & Puk en voorschoolse educatie, inclusief de nascholing voor editie 2.',
+    title: 'VE in beeld',
+    description: 'Voorschoolse educatie (VE) kan een belangrijke basis vormen voor de ontwikkeling van het jonge kind. Met methodieken zoals Uk & Puk krijgen professionals handvatten om spelenderwijs de ontwikkeling van het jonge kind te stimuleren, te begeleiden en te laten groeien.',
   },
   {
     icon: Target,
-    title: 'Direct toepasbaar',
-    description: 'Geen theorie om de theorie — altijd de vertaalslag naar de dagelijkse praktijk.',
+    title: 'Professionals in beeld',
+    description: 'Iedere professional verdient het om gezien en gehoord te worden. Bij Ve in Beeld staan hun ontwikkeling, talenten en ervaringen centraal',
   },
   {
     icon: Users,
-    title: 'Ervaring uit de kinderopvang',
-    description: 'Kennis van de realiteit op de groep.',
+    title: 'Ieder kind in beeld',
+    description: 'Ook ieder kind verdient aandacht en ruimte om zichzelf te laten zien. Samen bouwen we aan een sterke toekomst voor het jonge kind.',
   },
   {
     icon: Heart,
-    title: 'Persoonlijk & betrokken',
-    description: 'Interactief, positief en met aandacht voor de mensen in de organisatie.',
+    title: 'Een beeld voor ogen',
+    description: 'Ve in Beeld staat voor vooruitkijken, ontwikkelen en samen werken aan het beeld dat we voor de toekomst voor de jonge generatie voor ogen hebben.',
   },
 ]
 

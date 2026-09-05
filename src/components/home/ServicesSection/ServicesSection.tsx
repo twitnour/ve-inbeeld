@@ -33,7 +33,7 @@ const services = [
     icon: <Palette size={22} />,
     title: 'Workshops',
     description:
-      'Enthousiaste en interactieve workshops voor pedagogische professionals, én creatieve workshops voor kinderen.',
+      'Enthousiaste en interactieve workshops voor professionals en creatieve workshops voor kinderen.',
     to: paths.workshops,
     linkLabel: 'Bekijk de workshops',
   },
@@ -49,10 +49,6 @@ export function ServicesSection() {
     <Section tone="blush" width="wide" id="aanbod">
       <div className={styles.header}>
         <h2>Aanbod</h2>
-        <p>
-          Training, nascholing, beeldcoaching en workshops — allemaal gericht op de
-          praktijk van alledag in de kinderopvang en voorschoolse educatie.
-        </p>
       </div>
       <div className={styles.grid}>
         {services.map((service) => (
