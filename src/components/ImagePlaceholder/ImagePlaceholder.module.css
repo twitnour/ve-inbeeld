@@ -1,10 +1,14 @@
 .placeholder {
   position: relative;
+  display: block;
   width: 100%;
   overflow: hidden;
   background-color: var(--color-sand);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  /* Only affects a real <img> (harmless on the placeholder's div) — crops
+     a photo to fill its aspect-ratio box instead of squishing it. */
+  object-fit: cover;
 }
 
 .portrait {
@@ -17,6 +21,13 @@
 
 .landscape {
   aspect-ratio: 4 / 3;
+}
+
+/* Comes after the aspect classes so its 1:1 ratio wins regardless of
+   which aspect prop was also passed. */
+.circle {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 
 .placeholder :global(.decor-ring) {

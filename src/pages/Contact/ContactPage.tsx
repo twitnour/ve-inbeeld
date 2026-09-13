@@ -7,6 +7,7 @@ import { ContactForm } from '../../components/contact/ContactForm'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 import { businessInfo } from '../../lib/businessInfo'
+import portret3 from '../../assets/portret-3.jpg'
 import styles from './ContactPage.module.css'
 
 export function ContactPage() {
@@ -27,7 +28,9 @@ export function ContactPage() {
 
       <SplitContentSection
         tone="surface"
-        visual={<ImagePlaceholder aspect="portrait" alt="Portret van Marsha Lispet (foto volgt)" />}
+        visual={
+          <ImagePlaceholder src={portret3} shape="circle" alt="Portret van Marsha Lispet" />
+        }
       >
         <h2>Marsha Lispet</h2>
         <p className={styles.role}>VE in Beeld</p>

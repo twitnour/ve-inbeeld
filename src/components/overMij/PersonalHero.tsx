@@ -1,6 +1,7 @@
 import { Section } from '../Section/Section'
 import { Breadcrumbs, type BreadcrumbItem } from '../content/Breadcrumbs/Breadcrumbs'
 import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder'
+import portret2 from '../../assets/portret-2.jpg'
 import styles from './PersonalHero.module.css'
 
 interface PersonalHeroProps {
@@ -29,10 +30,10 @@ export function PersonalHero({ breadcrumbs }: PersonalHeroProps) {
           </p>
         </div>
         <div className={styles.imageWrap}>
-          {/* Prominent placeholder for Marsha's professional portrait — pass `src` once available. */}
           <ImagePlaceholder
+            src={portret2}
             aspect="portrait"
-            alt="Portret van Marsha Lispet, eigenaar van VE in Beeld (foto volgt)"
+            alt="Portret van Marsha Lispet, eigenaar van VE in Beeld"
           />
         </div>
       </div>

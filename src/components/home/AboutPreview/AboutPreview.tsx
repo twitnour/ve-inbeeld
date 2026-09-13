@@ -3,6 +3,7 @@ import { Section } from '../../Section/Section'
 import { Button } from '../../Button/Button'
 import { ImagePlaceholder } from '../../ImagePlaceholder/ImagePlaceholder'
 import { paths } from '../../../routes/paths'
+import portret4 from '../../../assets/portret-4.jpg'
 import styles from './AboutPreview.module.css'
 
 /**
@@ -14,8 +15,7 @@ export function AboutPreview() {
     <Section tone="surface" id="marsha">
       <div className={styles.grid}>
         <div className={styles.imageWrap}>
-          {/* Placeholder for a future portrait of Marsha — pass `src` once available. */}
-          <ImagePlaceholder aspect="square" alt="Portret van Marsha Lispet (foto volgt)" />
+          <ImagePlaceholder src={portret4} aspect="square" alt="Portret van Marsha Lispet" />
         </div>
 
         <div className={styles.content}>
