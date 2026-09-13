@@ -16,12 +16,14 @@ export function ContactDetails() {
           <span>{businessInfo.contactEmail}</span>
         </a>
       </li>
-      <li>
-        <a href={businessInfo.phoneHref} className={styles.link}>
-          <Phone size={18} aria-hidden="true" />
-          <span>{businessInfo.phoneNumber}</span>
-        </a>
-      </li>
+      {businessInfo.hasPhone && (
+        <li>
+          <a href={businessInfo.phoneHref} className={styles.link}>
+            <Phone size={18} aria-hidden="true" />
+            <span>{businessInfo.phoneNumber}</span>
+          </a>
+        </li>
+      )}
       <li>
         <a
           href={businessInfo.linkedinUrl}

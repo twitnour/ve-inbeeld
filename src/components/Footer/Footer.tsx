@@ -39,12 +39,14 @@ export function Footer() {
                 <span>{businessInfo.contactEmail}</span>
               </a>
             </li>
-            <li>
-              <a href={businessInfo.phoneHref} className={styles.contactLink}>
-                <Phone size={16} aria-hidden="true" />
-                <span>{businessInfo.phoneNumber}</span>
-              </a>
-            </li>
+            {businessInfo.hasPhone && (
+              <li>
+                <a href={businessInfo.phoneHref} className={styles.contactLink}>
+                  <Phone size={16} aria-hidden="true" />
+                  <span>{businessInfo.phoneNumber}</span>
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={businessInfo.linkedinUrl}

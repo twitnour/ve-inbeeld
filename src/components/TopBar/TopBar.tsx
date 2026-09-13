@@ -14,10 +14,12 @@ export function TopBar() {
     <div className={styles.topBar}>
       <div className={styles.inner}>
         <div className={styles.contactGroup}>
-          <a href={businessInfo.phoneHref} className={styles.contactLink}>
-            <Phone size={14} aria-hidden="true" />
-            <span className={styles.label}>{businessInfo.phoneNumber}</span>
-          </a>
+          {businessInfo.hasPhone && (
+            <a href={businessInfo.phoneHref} className={styles.contactLink}>
+              <Phone size={14} aria-hidden="true" />
+              <span className={styles.label}>{businessInfo.phoneNumber}</span>
+            </a>
+          )}
           <a href={`mailto:${businessInfo.contactEmail}`} className={styles.contactLink}>
             <Mail size={14} aria-hidden="true" />
             <span className={styles.label}>{businessInfo.contactEmail}</span>

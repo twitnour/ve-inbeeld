@@ -37,14 +37,24 @@ function toTelHref(phoneNumber: string): string {
   return `tel:${sign}${trimmed.replace(/\D/g, '')}`
 }
 
+// There's no real phone number to publish yet. Leaving VITE_PHONE_NUMBER
+// blank in .env means "no phone number" — TopBar, Footer and
+// ContactDetails all check `hasPhone` and simply don't render the phone
+// link when it's false. Filling in a real number later is the only step
+// needed to bring it back everywhere at once.
+const phoneNumber = import.meta.env.VITE_PHONE_NUMBER.trim()
+const hasPhone = phoneNumber !== ''
+
 export const businessInfo = {
   contactEmail: joinEmail(
     import.meta.env.VITE_CONTACT_EMAIL_USER,
     import.meta.env.VITE_CONTACT_EMAIL_DOMAIN,
   ),
+  /** Whether a real phone number is configured — see the note above. */
+  hasPhone,
   /** Human-readable phone number, exactly as it should be displayed. */
-  phoneNumber: import.meta.env.VITE_PHONE_NUMBER,
-  phoneHref: toTelHref(import.meta.env.VITE_PHONE_NUMBER),
+  phoneNumber,
+  phoneHref: hasPhone ? toTelHref(phoneNumber) : '',
   linkedinUrl: import.meta.env.VITE_LINKEDIN_URL,
   kvkNumber: import.meta.env.VITE_KVK_NUMBER,
 } as const
