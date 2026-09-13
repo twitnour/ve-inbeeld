@@ -1,5 +1,5 @@
 import { CalendarDays, MapPin, Users } from 'lucide-react'
-import { SplitContentSection } from '../content/SplitContentSection/SplitContentSection'
+import { Section } from '../Section/Section'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
 import { TopicsGrid } from '../content/TopicsGrid/TopicsGrid'
 import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder'
@@ -31,27 +31,28 @@ const infoRow = [
  * "Het programma van de training" — the training's structure, the
  * 12-topic curriculum (via TopicsGrid, read top-to-bottom within each
  * column: 1-6 left, 7-12 right) and a compact row of practical
- * participation details. Paired with a promotional visual on the
- * right (via SplitContentSection), stacked below the text on mobile.
+ * participation details. A visual sits next to the opening heading
+ * paragraph only (stacked below on mobile) — the topics list and info
+ * row below it stay full width, unaffected by the image.
  */
 export function ProgramSection() {
   return (
-    <SplitContentSection
-      tone="surface"
-      visual={
-        <ImagePlaceholder
-          src={socialsImage}
-          aspect="square"
-          alt="Uk & Puk: Puk vliegt met een vliegtuig door de lucht"
-        />
-      }
-    >
-      <SectionIntro heading="Het programma van de training">
-        De training bestaat uit 12 bijeenkomsten en 1 certificeringsbijeenkomst. Elke
-        bijeenkomst duurt 3,5 uur. Naast de training voert de pedagogisch coach de
-        groepsconsultaties uit, en houden deelnemers een portfolio, kwaliteitsfoto en
-        persoonlijk ontwikkelplan bij.
-      </SectionIntro>
+    <Section tone="surface">
+      <div className={styles.intro}>
+        <SectionIntro heading="Het programma van de training">
+          De training bestaat uit 12 bijeenkomsten en 1 certificeringsbijeenkomst. Elke
+          bijeenkomst duurt 3,5 uur. Naast de training voert de pedagogisch coach de
+          groepsconsultaties uit, en houden deelnemers een portfolio, kwaliteitsfoto en
+          persoonlijk ontwikkelplan bij.
+        </SectionIntro>
+        <div className={styles.visual}>
+          <ImagePlaceholder
+            src={socialsImage}
+            aspect="square"
+            alt="Uk & Puk: Puk vliegt met een vliegtuig door de lucht"
+          />
+        </div>
+      </div>
 
       <TopicsGrid topics={topics} fillDirection="column" />
 
@@ -63,6 +64,6 @@ export function ProgramSection() {
           </div>
         ))}
       </div>
-    </SplitContentSection>
+    </Section>
   )
 }

@@ -1,3 +1,30 @@
+/* Pairs only the heading/lead paragraph with the visual — the topics
+   list and info row below sit outside this grid, so they stay full
+   width regardless of the image's height. */
+.intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: start;
+  gap: var(--space-2xl);
+}
+
+.visual {
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .visual {
+    max-width: 18rem;
+  }
+}
+
 .infoRow {
   display: flex;
   flex-wrap: wrap;
