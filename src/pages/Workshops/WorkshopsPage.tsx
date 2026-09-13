@@ -1,11 +1,8 @@
 import {
-  Briefcase,
-  Building2,
   Clock,
   CupSoda,
   FileText,
   Frame,
-  Gift,
   Lightbulb,
   PartyPopper,
   Package,
@@ -14,11 +11,8 @@ import {
   ShoppingBag,
   Smile,
   Sparkles,
-  Sun,
-  Users,
   Users2,
   Brush,
-  Calendar,
 } from 'lucide-react'
 import { PageHero } from '../../components/content/PageHero/PageHero'
 import { SectionIntro } from '../../components/content/SectionIntro/SectionIntro'
@@ -55,15 +49,6 @@ const ideas = [
   { icon: CupSoda, label: 'Een eigen drinkmok ontwerpen en versieren' },
   { icon: Scissors, label: 'Creatieve knutsel- en ontwerpworkshops' },
   { icon: PartyPopper, label: 'Creatieve workshops rondom een thema of evenement' },
-]
-
-const occasions = [
-  { icon: Gift, text: 'Kinderfeestje' },
-  { icon: Users, text: 'Familiedag' },
-  { icon: Sun, text: 'Vakantieactiviteit' },
-  { icon: Briefcase, text: 'Personeelsfeest' },
-  { icon: Calendar, text: 'Evenement' },
-  { icon: Building2, text: 'Activiteit binnen een organisatie' },
 ]
 
 export function WorkshopsPage() {
