@@ -31,6 +31,7 @@ import { ImagePlaceholder } from '../../components/ImagePlaceholder/ImagePlaceho
 import { DirectionsIntro } from '../../components/workshops/DirectionsIntro'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import kralenImage from '../../assets/kralen.jpg'
 import styles from './WorkshopsPage.module.css'
 
 const requirements = [
@@ -111,8 +112,9 @@ export function WorkshopsPage() {
         visualPosition="left"
         visual={
           <ImagePlaceholder
+            src={kralenImage}
             aspect="square"
-            alt="Kinderen aan de slag tijdens een creatieve workshop (foto volgt)"
+            alt="Een kind rijgt kleurrijke kralen tijdens een creatieve workshop"
           />
         }
       >
@@ -130,7 +132,7 @@ export function WorkshopsPage() {
         <SectionIntro heading="Workshop ideeën">
           Een greep uit de workshops die ik verzorg:
         </SectionIntro>
-        <ExampleGrid items={ideas} />
+        <ExampleGrid items={ideas} columns={3} />
       </Section>
 
       <Section tone="default">

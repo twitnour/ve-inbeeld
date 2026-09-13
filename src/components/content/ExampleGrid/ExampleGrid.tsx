@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import type { CSSProperties, ComponentType } from 'react'
 import { Card } from '../../Card/Card'
 import styles from './ExampleGrid.module.css'
 
@@ -9,6 +9,8 @@ export interface ExampleGridItem {
 
 interface ExampleGridProps {
   items: ExampleGridItem[]
+  /** Desktop column count (narrower widths still collapse to 2, then 1). Defaults to 4. */
+  columns?: number
 }
 
 /**
@@ -16,9 +18,9 @@ interface ExampleGridProps {
  * overview list (development areas, workshop examples, etc.), not
  * another offer/service grid. Deliberately no description text.
  */
-export function ExampleGrid({ items }: ExampleGridProps) {
+export function ExampleGrid({ items, columns = 4 }: ExampleGridProps) {
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} style={{ '--example-grid-columns': columns } as CSSProperties}>
       {items.map(({ icon: Icon, label }) => (
         <Card key={label} className={styles.card}>
           <Icon size={20} aria-hidden="true" className={styles.icon} />

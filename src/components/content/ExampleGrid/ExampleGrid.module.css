@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--example-grid-columns, 4), 1fr);
   gap: var(--space-md);
 }
 
