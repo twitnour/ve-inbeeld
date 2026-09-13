@@ -23,7 +23,7 @@ export function HerscholingPage() {
       <PageHero
         eyebrow="VVE trainingen"
         title="Herscholing"
-        lead="Na het behalen van de VVE Uk &amp; Puk-certificering is het belangrijk om de opgedane kennis en vaardigheden te blijven onderhouden en verdiepen. Door regelmatig nascholing te volgen, blijven professionals op de hoogte van actuele ontwikkelingen en versterken zij hun kennis van de werkwijze en uitgangspunten van Uk &amp; Puk."
+        lead="Na het behalen van de VVE Uk & Puk-certificering is het belangrijk om de opgedane kennis en vaardigheden te blijven onderhouden en verdiepen. Door regelmatig nascholing te volgen, blijven professionals op de hoogte van actuele ontwikkelingen en versterken zij hun kennis van de werkwijze en uitgangspunten van Uk & Puk."
         breadcrumbs={[
           { label: 'Home', to: paths.home },
           { label: 'VVE trainingen', to: paths.vveTrainingen.index },

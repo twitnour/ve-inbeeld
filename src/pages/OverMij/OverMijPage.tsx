@@ -83,7 +83,7 @@ export function OverMijPage() {
       </EditorialSection>
 
       <Section tone="default">
-        <SectionIntro heading="Achtergrond &amp; expertise">
+        <SectionIntro heading="Achtergrond & expertise">
           Mijn professionele achtergrond in het kort.
         </SectionIntro>
         <FeatureList items={achtergrond} />
