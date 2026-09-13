@@ -8,6 +8,7 @@ import { PositiveSection } from '../../components/beeldcoaching/PositiveSection'
 import { VideoVisual } from '../../components/beeldcoaching/VideoVisual'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import cameraImage from '../../assets/camera.jpg'
 
 const steps = [
   {
@@ -47,7 +48,10 @@ export function BeeldcoachingPage() {
       <SplitContentSection
         tone="surface"
         visual={
-          <VideoVisual alt="Beeldfragment tijdens een coachingsmoment (volgt binnenkort)" />
+          <VideoVisual
+            src={cameraImage}
+            alt="Een pedagogisch professional filmt een groep spelende kinderen, met op het schermpje van de camera het teruggekeken beeldfragment"
+          />
         }
       >
         <h2>Wat is Video Interactie Begeleiding?</h2>
