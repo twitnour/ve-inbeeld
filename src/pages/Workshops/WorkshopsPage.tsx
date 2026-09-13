@@ -135,14 +135,6 @@ export function WorkshopsPage() {
         <ExampleGrid items={ideas} columns={3} />
       </Section>
 
-      <Section tone="default">
-        <SectionIntro heading="Op maat voor elke gelegenheid">
-          Een workshop is volledig af te stemmen op de leeftijd van de kinderen, het
-          thema en de gelegenheid.
-        </SectionIntro>
-        <FeatureList items={occasions} />
-      </Section>
-
       <CTASection
         heading="Een workshop in gedachten?"
         primaryAction={{ label: 'Neem contact op', to: paths.contact }}
@@ -150,7 +142,7 @@ export function WorkshopsPage() {
       >
         Hebben jullie een workshop in gedachten, of zijn jullie op zoek naar iemand die
         een bestaande workshop op een enthousiaste manier kan verzorgen? Neem gerust
-        contact op — ik denk graag mee over de mogelijkheden!
+        contact op. Ik denk graag mee over de mogelijkheden!
       </CTASection>
     </>
   )

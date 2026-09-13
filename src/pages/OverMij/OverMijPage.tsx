@@ -43,12 +43,12 @@ export function OverMijPage() {
           begon ik in de medische sector.
         </p>
         <p>
-          Al snel ontdekte ik dat mijn hart ergens anders lag, en maakte ik de overstap
+          Al snel ontdekte ik dat mijn hart ergens anders lag en maakte ik de overstap
           naar de kinderopvang.
         </p>
         <p>
-          Daar groeide mijn passie voor het werken met jonge kinderen — en mijn
-          enthousiasme voor pedagogiek — steeds verder.
+          Daar groeide mijn passie voor het werken met jonge kinderen en mijn
+          enthousiasme voor pedagogiek steeds verder.
         </p>
       </EditorialSection>
 
@@ -60,11 +60,9 @@ export function OverMijPage() {
         </p>
         <div className={styles.journeyQuote}>
           <PullQuote>
-            Hoe creëren we samen een rijke speelleeromgeving waarin ieder kind de
-            ruimte krijgt om te groeien, bloeien en ontdekken?
+            Met elkaar creëren we een rijke speelleeromgeving waarin ieder kind de ruimte krijgt om te groeien, bloeien en ontdekken.
           </PullQuote>
         </div>
-        <p>Momenteel ben ik werkzaam als pedagogisch coach binnen de kinderopvang.</p>
       </Section>
 
       <EditorialSection heading="Praktisch, persoonlijk en dichtbij de werkvloer" tone="surface">
@@ -92,7 +90,7 @@ export function OverMijPage() {
       <Section tone="blush" width="narrow">
         <PullQuote size="lg">Hier kan ik morgen meteen mee aan de slag!</PullQuote>
         <p className={styles.philosophyText}>
-          Dat is precies wat ik professionals na een training wil laten voelen — niet
+          Dat is precies wat ik professionals na een training wil laten voelen. Niet
           alleen nieuwe kennis en inzichten, maar vooral concrete ideeën en het
           vertrouwen om er direct mee aan de slag te gaan.
         </p>
