@@ -45,12 +45,7 @@ export function NascholingUkPukEditie2Page() {
           verdiepen van kennis en vaardigheden centraal staat.
         </p>
         <p>
-          Er is volop ruimte voor interactie en het uitwisselen van ervaringen, zodat de
-          vertaalslag van theorie naar de dagelijkse praktijk steeds dichtbij blijft.
-        </p>
-        <p>
-          Na afloop neem je nieuwe inzichten en praktische handvatten mee om direct met
-          de vernieuwde werkwijze van Uk &amp; Puk editie 2 aan de slag te gaan.
+          De trainingen bieden volop ruimte voor interactie, het uitwisselen van ervaringen en het vertalen van theorie naar de dagelijkse praktijk. Na afloop beschikken deelnemers over nieuwe inzichten en praktische handvatten om direct met de vernieuwde versie mee aan de slag te gaan.
         </p>
       </EditorialSection>
 
