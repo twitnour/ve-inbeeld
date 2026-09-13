@@ -7,14 +7,13 @@ import {
   type PracticalInfoBlock,
 } from '../../components/content/PracticalInfoGrid/PracticalInfoGrid'
 import { Section } from '../../components/Section/Section'
-import { WhatIsSection } from '../../components/ukPukEditie2/WhatIsSection'
+import { WhiteBgImage } from '../../components/WhiteBgImage/WhiteBgImage'
 import { DevelopmentAreasGrid } from '../../components/ukPukEditie2/DevelopmentAreasGrid'
 import { PracticeSection } from '../../components/ukPukEditie2/PracticeSection'
 import { ProgramSection } from '../../components/ukPukEditie2/ProgramSection'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 import feestvierenImage from '../../assets/UkPuk/UkPuk_Feestvieren_CED_officieel.png'
-import styles from './UkPukEditie2Page.module.css'
 
 const practicalInfoBlocks: PracticalInfoBlock[] = [
   {
@@ -73,17 +72,13 @@ export function UkPukEditie2Page() {
           { label: 'Uk & Puk editie 2' },
         ]}
         visual={
-          <div className={styles.heroImageWrap}>
-            <img
-              src={feestvierenImage}
-              alt="Puk viert feest met een bos ballonnen en zijn knuffelkonijn"
-              className={styles.heroImage}
-            />
-          </div>
+          <WhiteBgImage
+            src={feestvierenImage}
+            alt="Puk viert feest met een bos ballonnen en zijn knuffelkonijn"
+          />
         }
       />
 
-      <WhatIsSection />
       <DevelopmentAreasGrid />
       <PracticeSection />
       <ProgramSection />

@@ -1,7 +1,9 @@
 import { CalendarDays, MapPin, Users } from 'lucide-react'
-import { Section } from '../Section/Section'
+import { SplitContentSection } from '../content/SplitContentSection/SplitContentSection'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
 import { TopicsGrid } from '../content/TopicsGrid/TopicsGrid'
+import { ImagePlaceholder } from '../ImagePlaceholder/ImagePlaceholder'
+import socialsImage from '../../assets/UkPuk/UkPuk_socials_vierkant_1080x1080_CED_officieel.jpg'
 import styles from './ProgramSection.module.css'
 
 const topics = [
@@ -27,12 +29,23 @@ const infoRow = [
 
 /**
  * "Het programma van de training" — the training's structure, the
- * 12-topic curriculum (via TopicsGrid) and a compact row of practical
- * participation details.
+ * 12-topic curriculum (via TopicsGrid, read top-to-bottom within each
+ * column: 1-6 left, 7-12 right) and a compact row of practical
+ * participation details. Paired with a promotional visual on the
+ * right (via SplitContentSection), stacked below the text on mobile.
  */
 export function ProgramSection() {
   return (
-    <Section tone="surface">
+    <SplitContentSection
+      tone="surface"
+      visual={
+        <ImagePlaceholder
+          src={socialsImage}
+          aspect="square"
+          alt="Uk & Puk: Puk vliegt met een vliegtuig door de lucht"
+        />
+      }
+    >
       <SectionIntro heading="Het programma van de training">
         De training bestaat uit 12 bijeenkomsten en 1 certificeringsbijeenkomst. Elke
         bijeenkomst duurt 3,5 uur. Naast de training voert de pedagogisch coach de
@@ -40,7 +53,7 @@ export function ProgramSection() {
         persoonlijk ontwikkelplan bij.
       </SectionIntro>
 
-      <TopicsGrid topics={topics} />
+      <TopicsGrid topics={topics} fillDirection="column" />
 
       <div className={styles.infoRow}>
         {infoRow.map(({ icon: Icon, label }) => (
@@ -50,6 +63,6 @@ export function ProgramSection() {
           </div>
         ))}
       </div>
-    </Section>
+    </SplitContentSection>
   )
 }

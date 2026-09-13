@@ -1,6 +1,8 @@
-import { Section } from '../Section/Section'
+import { SplitContentSection } from '../content/SplitContentSection/SplitContentSection'
 import { SectionIntro } from '../content/SectionIntro/SectionIntro'
 import { InfoHighlights } from '../content/InfoHighlights/InfoHighlights'
+import { WhiteBgImage } from '../WhiteBgImage/WhiteBgImage'
+import groeienEnBloeienImage from '../../assets/UkPuk/UkPuk_Groeien en bloeien_CED_officieel.png'
 import styles from './PracticeSection.module.css'
 
 const structure = [
@@ -13,11 +15,21 @@ const structure = [
 /**
  * "Uk & Puk in de praktijk" — an editorial section with a compact
  * structure overview in the middle, so the rich source content stays
- * scannable instead of becoming a wall of text.
+ * scannable instead of becoming a wall of text. Paired with an
+ * illustration on the right (via SplitContentSection), stacked below
+ * the text on mobile.
  */
 export function PracticeSection() {
   return (
-    <Section tone="default">
+    <SplitContentSection
+      tone="default"
+      visual={
+        <WhiteBgImage
+          src={groeienEnBloeienImage}
+          alt="Puk geeft een jong plantje water, met een bijtje en zijn knuffelkonijn erbij"
+        />
+      }
+    >
       <SectionIntro heading="Uk & Puk in de praktijk" />
       <div className={styles.body}>
         <p>
@@ -27,9 +39,10 @@ export function PracticeSection() {
           baby’s, dreumesen en peuters.
         </p>
         <p>
-          De handpop Puk vormt daarbij een belangrijke schakel tussen de kinderen en de
-          pedagogisch professional: Puk zorgt voor herkenning en betrokkenheid en
-          betrekt kinderen op een speelse manier bij de activiteiten.
+          Activiteiten worden zowel in kleine als in grote groepen aangeboden en sluiten
+          aan bij de SLO-doelen. De thema’s sluiten aan bij de belevingswereld van jonge
+          kinderen, waardoor zij op een betekenisvolle en speelse manier kunnen leren en
+          ontdekken.
         </p>
       </div>
 
@@ -42,6 +55,6 @@ export function PracticeSection() {
           van jonge kinderen, zodat leren betekenisvol en speels blijft.
         </p>
       </div>
-    </Section>
+    </SplitContentSection>
   )
 }
