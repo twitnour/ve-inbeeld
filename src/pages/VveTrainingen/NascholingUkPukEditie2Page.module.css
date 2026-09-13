@@ -14,3 +14,49 @@
     max-width: 10rem;
   }
 }
+
+/*
+ * "In het kort": pairs the heading/InfoHighlights with a visual on the
+ * right, without changing the text block's own size.
+ */
+.inKort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-xl);
+}
+
+.inKortText {
+  /*
+   * Matches InfoHighlights' own max-width exactly. Without an
+   * explicit width here, this flex item would shrink-to-fit — and
+   * InfoHighlights' auto-fit grid has no sensible max-content size,
+   * so it collapses to a single narrow column instead of its
+   * intended row of stats. flex-shrink: 0 then keeps it from being
+   * squeezed smaller than that by the visual alongside it.
+   */
+  width: var(--content-max-width-narrow);
+  flex-shrink: 0;
+}
+
+.inKortVisual {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 10rem;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .inKort {
+    flex-direction: column;
+  }
+
+  .inKortText {
+    width: 100%;
+  }
+
+  .inKortVisual {
+    max-width: 10rem;
+    margin-inline: auto;
+  }
+}

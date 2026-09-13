@@ -5,9 +5,11 @@ import { InfoHighlights } from '../../components/content/InfoHighlights/InfoHigh
 import { TopicsGrid } from '../../components/content/TopicsGrid/TopicsGrid'
 import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
+import { WhiteBgImage } from '../../components/WhiteBgImage/WhiteBgImage'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
 import boekenImage from '../../assets/UkPuk/UkPuk_boeken_CED_officieel.png'
+import welkomImage from '../../assets/UkPuk/UkPuk_Welkom in onze groep_CED_officieel.png'
 import styles from './NascholingUkPukEditie2Page.module.css'
 
 const onderwerpen = ['Nieuwe thema’s', 'De 4 D’s', 'Nieuwe formulieren', 'Inhoudelijke veranderingen']
@@ -50,14 +52,25 @@ export function NascholingUkPukEditie2Page() {
       </EditorialSection>
 
       <Section tone="blush">
-        <SectionIntro heading="In het kort" />
-        <InfoHighlights
-          items={[
-            { value: '2', label: 'bijeenkomsten' },
-            { value: '2,5 uur', label: 'per bijeenkomst' },
-            { value: 'Interactief', label: 'en praktijkgericht' },
-          ]}
-        />
+        <div className={styles.inKort}>
+          <div className={styles.inKortText}>
+            <SectionIntro heading="In het kort" />
+            <InfoHighlights
+              items={[
+                { value: '2', label: 'bijeenkomsten' },
+                { value: '2,5 uur', label: 'per bijeenkomst' },
+                { value: 'Interactief', label: 'en praktijkgericht' },
+              ]}
+            />
+          </div>
+          <div className={styles.inKortVisual}>
+            <WhiteBgImage
+              src={welkomImage}
+              alt="Puk, een teddybeer, een knuffelhond en een knuffelbeer zitten samen aan een tafeltje"
+              background="var(--color-soft-pink)"
+            />
+          </div>
+        </div>
       </Section>
 
       <Section tone="surface">
