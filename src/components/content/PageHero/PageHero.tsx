@@ -26,6 +26,12 @@ interface PageHeroProps {
   secondaryAction?: PageHeroAction
   /** Optional Home / … / Current-page trail, e.g. for the VVE training pages. */
   breadcrumbs?: BreadcrumbItem[]
+  /**
+   * Optional illustration/photo shown beside the text at desktop widths
+   * (stacked below the text on mobile). Omit for the default single-column
+   * hero used by most content pages.
+   */
+  visual?: ReactNode
 }
 
 function ActionButton({ action, variant }: { action: PageHeroAction; variant: ButtonVariant }) {
@@ -60,30 +66,42 @@ export function PageHero({
   primaryAction,
   secondaryAction,
   breadcrumbs,
+  visual,
 }: PageHeroProps) {
+  const content = (
+    <div className={styles.content}>
+      {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+      <span className="eyebrow">{eyebrow}</span>
+      <h1>{title}</h1>
+      {Array.isArray(lead) ? (
+        lead.map((paragraph, index) => (
+          <p key={index} className={styles.lead}>
+            {paragraph}
+          </p>
+        ))
+      ) : (
+        <p className={styles.lead}>{lead}</p>
+      )}
+      {(primaryAction || secondaryAction) && (
+        <div className={styles.actions}>
+          {primaryAction && <ActionButton action={primaryAction} variant="primary" />}
+          {secondaryAction && <ActionButton action={secondaryAction} variant="secondary" />}
+        </div>
+      )}
+    </div>
+  )
+
   return (
     <Section tone="default" width="normal" className={styles.hero}>
       <span className="decor decor-ring" aria-hidden="true" />
-      <div className={styles.content}>
-        {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
-        <span className="eyebrow">{eyebrow}</span>
-        <h1>{title}</h1>
-        {Array.isArray(lead) ? (
-          lead.map((paragraph, index) => (
-            <p key={index} className={styles.lead}>
-              {paragraph}
-            </p>
-          ))
-        ) : (
-          <p className={styles.lead}>{lead}</p>
-        )}
-        {(primaryAction || secondaryAction) && (
-          <div className={styles.actions}>
-            {primaryAction && <ActionButton action={primaryAction} variant="primary" />}
-            {secondaryAction && <ActionButton action={secondaryAction} variant="secondary" />}
-          </div>
-        )}
-      </div>
+      {visual ? (
+        <div className={styles.grid}>
+          {content}
+          <div className={styles.visual}>{visual}</div>
+        </div>
+      ) : (
+        content
+      )}
     </Section>
   )
 }
