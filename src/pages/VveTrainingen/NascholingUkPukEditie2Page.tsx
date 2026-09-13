@@ -7,6 +7,8 @@ import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import boekenImage from '../../assets/UkPuk/UkPuk_boeken_CED_officieel.png'
+import styles from './NascholingUkPukEditie2Page.module.css'
 
 const onderwerpen = ['Nieuwe thema’s', 'De 4 D’s', 'Nieuwe formulieren', 'Inhoudelijke veranderingen']
 
@@ -28,6 +30,13 @@ export function NascholingUkPukEditie2Page() {
           { label: 'VVE trainingen', to: paths.vveTrainingen.index },
           { label: 'Nascholing Uk & Puk editie 2' },
         ]}
+        visual={
+          <img
+            src={boekenImage}
+            alt="Puk leest een boek, gezeten op een stapel boeken, met zijn knuffelkonijn erbij"
+            className={styles.heroImage}
+          />
+        }
       />
 
       <EditorialSection heading="Verdiepen, uitwisselen en direct toepassen" tone="surface">
