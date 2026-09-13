@@ -44,7 +44,7 @@ const childValues = [
   { icon: Smile, text: 'Plezier staat voorop' },
   { icon: Sparkles, text: 'Ruimte voor creativiteit' },
   { icon: Lightbulb, text: 'Eigen ideeën vormgeven' },
-  { icon: Brush, text: 'Het proces boven een perfect eindresultaat' },
+  { icon: Brush, text: 'Het proces is het allerbelangrijkste' },
 ]
 
 const ideas = [
