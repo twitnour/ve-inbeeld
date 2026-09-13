@@ -15,7 +15,13 @@ interface PageHeroAction {
 interface PageHeroProps {
   eyebrow: string
   title: string
-  lead: ReactNode
+  /**
+   * A single paragraph, or an array of strings for multiple paragraphs
+   * (each rendered as its own <p> — don't pass a multi-line template
+   * literal here, blank lines collapse to nothing in HTML and every
+   * paragraph runs together as one).
+   */
+  lead: ReactNode | string[]
   primaryAction?: PageHeroAction
   secondaryAction?: PageHeroAction
   /** Optional Home / … / Current-page trail, e.g. for the VVE training pages. */
@@ -62,7 +68,15 @@ export function PageHero({
         {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
-        <p className={styles.lead}>{lead}</p>
+        {Array.isArray(lead) ? (
+          lead.map((paragraph, index) => (
+            <p key={index} className={styles.lead}>
+              {paragraph}
+            </p>
+          ))
+        ) : (
+          <p className={styles.lead}>{lead}</p>
+        )}
         {(primaryAction || secondaryAction) && (
           <div className={styles.actions}>
             {primaryAction && <ActionButton action={primaryAction} variant="primary" />}
