@@ -2,14 +2,15 @@
   display: block;
   width: 100%;
   height: auto;
-  /* About 75% of the usual hero visual size (22rem) — this portrait
-     illustration read as oversized at full width. */
-  max-width: 16.5rem;
+  /* Cut down twice now (each time to ~75% of the previous size) —
+     this portrait illustration kept reading as oversized next to the
+     shorter hero text. */
+  max-width: 12.5rem;
   margin-inline: auto;
 }
 
 @media (max-width: 768px) {
   .heroImage {
-    max-width: 13.5rem;
+    max-width: 10rem;
   }
 }
