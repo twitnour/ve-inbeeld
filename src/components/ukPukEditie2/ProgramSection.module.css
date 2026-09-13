@@ -10,7 +10,10 @@
 
 .visual {
   width: 100%;
-  max-width: 22rem;
+  /* About half the usual visual size — this square graphic is taller
+     than the paragraph beside it, and at the standard size it stretched
+     the row enough to touch the topics list directly below. */
+  max-width: 11rem;
   margin-inline: auto;
 }
 
@@ -21,7 +24,7 @@
   }
 
   .visual {
-    max-width: 18rem;
+    max-width: 9rem;
   }
 }
 
