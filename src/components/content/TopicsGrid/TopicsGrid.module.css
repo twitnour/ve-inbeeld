@@ -27,6 +27,15 @@
   color: var(--color-primary-strong);
 }
 
+.dot {
+  flex-shrink: 0;
+  align-self: center;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--color-primary-strong);
+}
+
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;

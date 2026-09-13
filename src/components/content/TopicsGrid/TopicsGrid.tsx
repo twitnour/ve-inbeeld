@@ -11,15 +11,17 @@ interface TopicsGridProps {
    * the underlying <ol> keeps its natural 1..n source order.
    */
   fillDirection?: 'row' | 'column'
+  /** Marker shown before each topic. 'number' (default) shows 01, 02, ... — 'dot' shows a plain bullet instead. */
+  marker?: 'number' | 'dot'
 }
 
 /**
- * A numbered curriculum/topics overview — a reference list rather than
- * a card grid, so it reads as scannable program content. Column count
- * is fixed at two; with few items it simply reads as a short 2x2-style
+ * A curriculum/topics overview — a reference list rather than a card
+ * grid, so it reads as scannable program content. Column count is
+ * fixed at two; with few items it simply reads as a short 2x2-style
  * block, with many it becomes a compact overview.
  */
-export function TopicsGrid({ topics, fillDirection = 'row' }: TopicsGridProps) {
+export function TopicsGrid({ topics, fillDirection = 'row', marker = 'number' }: TopicsGridProps) {
   const columnMajor = fillDirection === 'column'
   const classNames = [styles.grid, columnMajor && styles.columnMajor].filter(Boolean).join(' ')
   const style = columnMajor
@@ -30,7 +32,11 @@ export function TopicsGrid({ topics, fillDirection = 'row' }: TopicsGridProps) {
     <ol className={classNames} style={style}>
       {topics.map((topic, index) => (
         <li className={styles.item} key={topic}>
-          <span className={styles.number}>{String(index + 1).padStart(2, '0')}</span>
+          {marker === 'number' ? (
+            <span className={styles.number}>{String(index + 1).padStart(2, '0')}</span>
+          ) : (
+            <span className={styles.dot} aria-hidden="true" />
+          )}
           <span>{topic}</span>
         </li>
       ))}
