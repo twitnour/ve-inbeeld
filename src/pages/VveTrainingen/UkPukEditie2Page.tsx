@@ -94,7 +94,7 @@ export function UkPukEditie2Page() {
         secondaryAction={{ label: 'Neem contact op', to: paths.contact }}
       >
         Wil je Uk &amp; Puk editie 2 binnen jouw organisatie inzetten? Vraag vrijblijvend
-        een offerte aan of neem contact op — ik denk graag met je mee.
+        een offerte aan of neem contact op. Ik denk graag met je mee.
       </CTASection>
     </>
   )

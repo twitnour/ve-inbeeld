@@ -23,8 +23,6 @@ export function NascholingUkPukEditie2Page() {
         eyebrow="VVE trainingen"
         title="Nascholing Uk & Puk editie 2"
         lead="Op zoek naar een inspirerende en praktijkgerichte nascholing voor Uk & Puk editie 2? Tijdens twee interactieve dagdelen verdiep je kennis en vaardigheden, zodat je de vernieuwde werkwijze met vertrouwen toepast in de dagelijkse praktijk."
-        primaryAction={{ label: 'Vraag een offerte aan', to: paths.offerteAanvragen }}
-        secondaryAction={{ label: 'Neem contact op', to: paths.contact }}
         breadcrumbs={[
           { label: 'Home', to: paths.home },
           { label: 'VVE trainingen', to: paths.vveTrainingen.index },

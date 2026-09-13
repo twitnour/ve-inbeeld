@@ -42,7 +42,7 @@ export function ProgramSection() {
         <SectionIntro heading="Het programma van de training">
           De training bestaat uit 12 bijeenkomsten en 1 certificeringsbijeenkomst. Elke
           bijeenkomst duurt 3,5 uur. Naast de training voert de pedagogisch coach de
-          groepsconsultaties uit, en houden deelnemers een portfolio, kwaliteitsfoto en
+          groepsconsultaties uit en houden deelnemers een portfolio, kwaliteitsfoto en
           persoonlijk ontwikkelplan bij.
         </SectionIntro>
         <div className={styles.visual}>
