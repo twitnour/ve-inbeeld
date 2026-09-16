@@ -25,7 +25,7 @@ export function PersonalHero({ breadcrumbs }: PersonalHeroProps) {
           <h1>Hi, ik ben Marsha</h1>
           <p className={styles.lead}>
             Eigenaar van VE in Beeld, trainer, coach en workshopbegeleider. Ik
-            ondersteun en inspireer professionals die werken met jonge kinderen, en zet
+            ondersteun en inspireer professionals die werken met jonge kinderen en zet
             hen in hun kracht om samen te kijken naar wat kinderen nodig hebben.
           </p>
         </div>
