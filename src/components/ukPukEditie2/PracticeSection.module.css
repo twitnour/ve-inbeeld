@@ -1,3 +1,30 @@
 .body {
   max-width: var(--content-max-width-narrow);
 }
+
+/* Pairs only the opening heading/paragraphs with the illustration —
+   InfoHighlights and the closing paragraph sit outside this grid, so
+   they stay full width regardless of the image's height. */
+.intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: start;
+  gap: var(--space-2xl);
+}
+
+.visual {
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .visual {
+    max-width: 18rem;
+  }
+}

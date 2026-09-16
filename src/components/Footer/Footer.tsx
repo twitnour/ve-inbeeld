@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, Link2 } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
+import { LinkedinIcon } from '../icons/LinkedinIcon'
 import { paths } from '../../routes/paths'
 import { businessInfo } from '../../lib/businessInfo'
 import logo from '../../assets/logo-alt2.webp'
@@ -39,12 +40,14 @@ export function Footer() {
                 <span>{businessInfo.contactEmail}</span>
               </a>
             </li>
-            <li>
-              <a href={businessInfo.phoneHref} className={styles.contactLink}>
-                <Phone size={16} aria-hidden="true" />
-                <span>{businessInfo.phoneNumber}</span>
-              </a>
-            </li>
+            {businessInfo.hasPhone && (
+              <li>
+                <a href={businessInfo.phoneHref} className={styles.contactLink}>
+                  <Phone size={16} aria-hidden="true" />
+                  <span>{businessInfo.phoneNumber}</span>
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={businessInfo.linkedinUrl}
@@ -53,7 +56,7 @@ export function Footer() {
                 className={styles.contactLink}
                 aria-label="VE in Beeld op LinkedIn (opent in nieuw tabblad)"
               >
-                <Link2 size={16} aria-hidden="true" />
+                <LinkedinIcon size={16} aria-hidden="true" />
                 <span>LinkedIn</span>
               </a>
             </li>

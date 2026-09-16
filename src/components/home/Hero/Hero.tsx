@@ -1,6 +1,7 @@
 import { Button } from '../../Button/Button'
 import { ImagePlaceholder } from '../../ImagePlaceholder/ImagePlaceholder'
 import { Section } from '../../Section/Section'
+import portret1 from '../../../assets/portret-1.jpg'
 import styles from './Hero.module.css'
 
 /**
@@ -33,14 +34,10 @@ export function Hero() {
         </div>
 
         <div className={styles.imageWrap}>
-          {/*
-            Placeholder for a future portrait of Marsha. Once
-            photography is available, pass `src` here — no other
-            changes needed.
-          */}
           <ImagePlaceholder
+            src={portret1}
             aspect="portrait"
-            alt="Portret van Marsha Lispet, oprichter van VE in Beeld (foto volgt)"
+            alt="Portret van Marsha Lispet, oprichter van VE in Beeld"
           />
         </div>
       </div>

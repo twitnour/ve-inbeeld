@@ -8,6 +8,7 @@ import { PositiveSection } from '../../components/beeldcoaching/PositiveSection'
 import { VideoVisual } from '../../components/beeldcoaching/VideoVisual'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import cameraImage from '../../assets/camera.jpg'
 
 const steps = [
   {
@@ -32,7 +33,7 @@ export function BeeldcoachingPage() {
   usePageMeta({
     title: 'Beeldcoaching op maat | VE in Beeld',
     description:
-      'Video Interactie Begeleiding (VIB) helpt pedagogisch professionals inzicht te krijgen in hun communicatie, interacties en pedagogisch handelen.',
+      'Video Interactie Begeleiding (VIB) helpt professionals inzicht te krijgen in hun communicatie, interacties en pedagogisch handelen.',
   })
 
   return (
@@ -40,21 +41,22 @@ export function BeeldcoachingPage() {
       <PageHero
         eyebrow="Beeldcoaching op maat"
         title="Groeien door te kijken naar wat er al is"
-        lead="Video Interactie Begeleiding (VIB) helpt pedagogisch professionals inzicht te krijgen in hun eigen communicatie, interacties en pedagogisch handelen — op een positieve en ontwikkelingsgerichte manier."
-        primaryAction={{ label: 'Neem contact op', to: paths.contact }}
-        secondaryAction={{ label: 'Meer over de werkwijze', href: '#werkwijze' }}
+        lead="Video Interactie Begeleiding (VIB) helpt pedagogisch professionals inzicht te krijgen in hun eigen communicatie, interacties en pedagogisch handelen. Dit gebeurt op een positieve en ontwikkelingsgerichte manier."
         breadcrumbs={[{ label: 'Home', to: paths.home }, { label: 'Beeldcoaching op maat' }]}
       />
 
       <SplitContentSection
         tone="surface"
         visual={
-          <VideoVisual alt="Beeldfragment tijdens een coachingsmoment (volgt binnenkort)" />
+          <VideoVisual
+            src={cameraImage}
+            alt="Een pedagogisch professional filmt een groep spelende kinderen, met op het schermpje van de camera het teruggekeken beeldfragment"
+          />
         }
       >
         <h2>Wat is Video Interactie Begeleiding?</h2>
         <p>
-          VIB is een krachtige en positieve methodiek waarmee pedagogisch professionals
+          VIB is een krachtige en positieve methodiek waarmee professionals
           inzicht krijgen in hun eigen communicatie, interacties en pedagogisch
           handelen.
         </p>

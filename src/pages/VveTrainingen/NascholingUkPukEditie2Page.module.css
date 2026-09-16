@@ -1,0 +1,16 @@
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Cut down twice now (each time to ~75% of the previous size) —
+     this portrait illustration kept reading as oversized next to the
+     shorter hero text. */
+  max-width: 12.5rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .heroImage {
+    max-width: 10rem;
+  }
+}

@@ -7,6 +7,8 @@ import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import boekenImage from '../../assets/UkPuk/UkPuk_boeken_CED_officieel.png'
+import styles from './NascholingUkPukEditie2Page.module.css'
 
 const onderwerpen = ['Nieuwe thema’s', 'De 4 D’s', 'Nieuwe formulieren', 'Inhoudelijke veranderingen']
 
@@ -23,13 +25,18 @@ export function NascholingUkPukEditie2Page() {
         eyebrow="VVE trainingen"
         title="Nascholing Uk & Puk editie 2"
         lead="Op zoek naar een inspirerende en praktijkgerichte nascholing voor Uk & Puk editie 2? Tijdens twee interactieve dagdelen verdiep je kennis en vaardigheden, zodat je de vernieuwde werkwijze met vertrouwen toepast in de dagelijkse praktijk."
-        primaryAction={{ label: 'Vraag een offerte aan', to: paths.offerteAanvragen }}
-        secondaryAction={{ label: 'Neem contact op', to: paths.contact }}
         breadcrumbs={[
           { label: 'Home', to: paths.home },
           { label: 'VVE trainingen', to: paths.vveTrainingen.index },
           { label: 'Nascholing Uk & Puk editie 2' },
         ]}
+        visual={
+          <img
+            src={boekenImage}
+            alt="Puk leest een boek, gezeten op een stapel boeken, met zijn knuffelkonijn erbij"
+            className={styles.heroImage}
+          />
+        }
       />
 
       <EditorialSection heading="Verdiepen, uitwisselen en direct toepassen" tone="surface">
@@ -38,12 +45,7 @@ export function NascholingUkPukEditie2Page() {
           verdiepen van kennis en vaardigheden centraal staat.
         </p>
         <p>
-          Er is volop ruimte voor interactie en het uitwisselen van ervaringen, zodat de
-          vertaalslag van theorie naar de dagelijkse praktijk steeds dichtbij blijft.
-        </p>
-        <p>
-          Na afloop neem je nieuwe inzichten en praktische handvatten mee om direct met
-          de vernieuwde werkwijze van Uk &amp; Puk editie 2 aan de slag te gaan.
+          De trainingen bieden volop ruimte voor interactie, het uitwisselen van ervaringen en het vertalen van theorie naar de dagelijkse praktijk. Na afloop beschikken deelnemers over nieuwe inzichten en praktische handvatten om direct met de vernieuwde versie mee aan de slag te gaan.
         </p>
       </EditorialSection>
 
@@ -63,7 +65,7 @@ export function NascholingUkPukEditie2Page() {
           Tijdens de nascholing maak je kennis met de belangrijkste vernieuwingen binnen
           Uk &amp; Puk editie 2.
         </SectionIntro>
-        <TopicsGrid topics={onderwerpen} />
+        <TopicsGrid topics={onderwerpen} marker="dot" />
       </Section>
 
       <Section tone="default" width="narrow">

@@ -1,6 +1,7 @@
 import styles from './ImagePlaceholder.module.css'
 
 export type ImagePlaceholderAspect = 'portrait' | 'square' | 'landscape'
+export type ImagePlaceholderShape = 'rectangle' | 'circle'
 
 interface ImagePlaceholderProps {
   /**
@@ -11,6 +12,8 @@ interface ImagePlaceholderProps {
   src?: string
   alt: string
   aspect?: ImagePlaceholderAspect
+  /** 'circle' crops to a 1:1 circle instead of the default rounded rectangle. */
+  shape?: ImagePlaceholderShape
   className?: string
 }
 
@@ -25,8 +28,16 @@ interface ImagePlaceholderProps {
  * and this component swaps straight to a real `<img>` with no other
  * changes required at the call site.
  */
-export function ImagePlaceholder({ src, alt, aspect = 'portrait', className }: ImagePlaceholderProps) {
-  const classNames = [styles.placeholder, styles[aspect], className].filter(Boolean).join(' ')
+export function ImagePlaceholder({
+  src,
+  alt,
+  aspect = 'portrait',
+  shape = 'rectangle',
+  className,
+}: ImagePlaceholderProps) {
+  const classNames = [styles.placeholder, styles[aspect], shape === 'circle' && styles.circle, className]
+    .filter(Boolean)
+    .join(' ')
 
   if (src) {
     return <img src={src} alt={alt} className={classNames} />

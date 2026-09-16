@@ -1,11 +1,8 @@
 import {
-  Briefcase,
-  Building2,
   Clock,
   CupSoda,
   FileText,
   Frame,
-  Gift,
   Lightbulb,
   PartyPopper,
   Package,
@@ -14,11 +11,8 @@ import {
   ShoppingBag,
   Smile,
   Sparkles,
-  Sun,
-  Users,
   Users2,
   Brush,
-  Calendar,
 } from 'lucide-react'
 import { PageHero } from '../../components/content/PageHero/PageHero'
 import { SectionIntro } from '../../components/content/SectionIntro/SectionIntro'
@@ -31,6 +25,7 @@ import { ImagePlaceholder } from '../../components/ImagePlaceholder/ImagePlaceho
 import { DirectionsIntro } from '../../components/workshops/DirectionsIntro'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import kralenImage from '../../assets/kralen.jpg'
 import styles from './WorkshopsPage.module.css'
 
 const requirements = [
@@ -44,7 +39,7 @@ const childValues = [
   { icon: Smile, text: 'Plezier staat voorop' },
   { icon: Sparkles, text: 'Ruimte voor creativiteit' },
   { icon: Lightbulb, text: 'Eigen ideeën vormgeven' },
-  { icon: Brush, text: 'Het proces boven een perfect eindresultaat' },
+  { icon: Brush, text: 'Het proces is het allerbelangrijkste' },
 ]
 
 const ideas = [
@@ -54,15 +49,6 @@ const ideas = [
   { icon: CupSoda, label: 'Een eigen drinkmok ontwerpen en versieren' },
   { icon: Scissors, label: 'Creatieve knutsel- en ontwerpworkshops' },
   { icon: PartyPopper, label: 'Creatieve workshops rondom een thema of evenement' },
-]
-
-const occasions = [
-  { icon: Gift, text: 'Kinderfeestje' },
-  { icon: Users, text: 'Familiedag' },
-  { icon: Sun, text: 'Vakantieactiviteit' },
-  { icon: Briefcase, text: 'Personeelsfeest' },
-  { icon: Calendar, text: 'Evenement' },
-  { icon: Building2, text: 'Activiteit binnen een organisatie' },
 ]
 
 export function WorkshopsPage() {
@@ -111,8 +97,9 @@ export function WorkshopsPage() {
         visualPosition="left"
         visual={
           <ImagePlaceholder
+            src={kralenImage}
             aspect="square"
-            alt="Kinderen aan de slag tijdens een creatieve workshop (foto volgt)"
+            alt="Een kind rijgt kleurrijke kralen tijdens een creatieve workshop"
           />
         }
       >
@@ -130,15 +117,7 @@ export function WorkshopsPage() {
         <SectionIntro heading="Workshop ideeën">
           Een greep uit de workshops die ik verzorg:
         </SectionIntro>
-        <ExampleGrid items={ideas} />
-      </Section>
-
-      <Section tone="default">
-        <SectionIntro heading="Op maat voor elke gelegenheid">
-          Een workshop is volledig af te stemmen op de leeftijd van de kinderen, het
-          thema en de gelegenheid.
-        </SectionIntro>
-        <FeatureList items={occasions} />
+        <ExampleGrid items={ideas} columns={3} />
       </Section>
 
       <CTASection
@@ -148,7 +127,7 @@ export function WorkshopsPage() {
       >
         Hebben jullie een workshop in gedachten, of zijn jullie op zoek naar iemand die
         een bestaande workshop op een enthousiaste manier kan verzorgen? Neem gerust
-        contact op — ik denk graag mee over de mogelijkheden!
+        contact op. Ik denk graag mee over de mogelijkheden!
       </CTASection>
     </>
   )
