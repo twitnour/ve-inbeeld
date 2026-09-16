@@ -1,16 +1,3 @@
-.hero {
-  overflow: hidden;
-}
-
-/* A quiet corner accent — behind the text, never competing with it. */
-.hero :global(.decor-ring) {
-  top: -3rem;
-  right: -2rem;
-  width: 16rem;
-  height: 16rem;
-  opacity: 0.25;
-}
-
 .content {
   position: relative;
   z-index: 1;

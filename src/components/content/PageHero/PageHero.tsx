@@ -55,9 +55,9 @@ function ActionButton({ action, variant }: { action: PageHeroAction; variant: Bu
  * Shared hero for content pages (as opposed to the homepage's own,
  * larger two-column Hero). Single column, no photo placeholder — just
  * an optional breadcrumb trail, an eyebrow, the page's one <h1>, a
- * short lead and up to two CTAs, with a quiet ring accent in the
- * background. An action may point at a route (`to`) or, for a
- * "scroll to this page's own section" CTA, an in-page anchor (`href`).
+ * short lead and up to two CTAs. An action may point at a route (`to`)
+ * or, for a "scroll to this page's own section" CTA, an in-page anchor
+ * (`href`).
  */
 export function PageHero({
   eyebrow,
@@ -92,8 +92,7 @@ export function PageHero({
   )
 
   return (
-    <Section tone="default" width="normal" className={styles.hero}>
-      <span className="decor decor-ring" aria-hidden="true" />
+    <Section tone="default" width="normal">
       {visual ? (
         <div className={styles.grid}>
           {content}
