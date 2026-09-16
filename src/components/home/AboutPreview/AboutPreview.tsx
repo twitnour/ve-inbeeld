@@ -26,7 +26,7 @@ export function AboutPreview() {
             kinderopvang.
           </p>
           <p>
-            Mijn jarenlange ervaring binnen de kinderopvang is mijn passie voor het werken 
+            Door mijn jarenlange ervaring binnen de kinderopvang is mijn passie voor het werken 
             met jonge kinderen uitgegroeid tot een missie, namelijk professionals inspireren, 
             versterken en voorzien van praktische handvatten voor hun dagelijks werk.
           </p>
