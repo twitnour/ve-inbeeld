@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.icon {
+  color: var(--color-primary-strong);
+  margin-bottom: var(--space-2xs);
+}
+
+.title {
+  margin: 0 0 var(--space-2xs);
+  font-size: var(--font-size-lg);
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
