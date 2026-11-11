@@ -9,6 +9,7 @@ import { CTASection } from '../../components/content/CTASection/CTASection'
 import { Section } from '../../components/Section/Section'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { paths } from '../../routes/paths'
+import styles from './PedagogischCoachPage.module.css'
 
 const coachingOpMaat = [
   { icon: Eye, text: 'Kijk ik naar jouw kwaliteiten en mogelijkheden.' },
@@ -122,7 +123,7 @@ export function PedagogischCoachPage() {
         </SectionIntro>
         <p>Tijdens mijn coaching:</p>
         <FeatureList items={coachingOpMaat} />
-        <p>
+        <p className={styles.spaced}>
           Mijn doel is dat je na een coachingsmoment niet alleen nieuwe inzichten hebt
           opgedaan, maar ook weet hoe je deze kunt toepassen in jouw dagelijkse werk.
         </p>
