@@ -13,6 +13,7 @@ export const paths = {
     herscholing: '/vve-trainingen/herscholing',
   },
   beeldcoachingOpMaat: '/beeldcoaching-op-maat',
+  pedagogischCoach: '/pedagogische-coach',
   workshops: '/workshops',
   overMij: '/over-mij',
   contact: '/contact',

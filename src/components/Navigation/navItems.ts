@@ -7,7 +7,8 @@ export interface NavChild {
 
 export interface NavItem {
   label: string
-  to: string
+  /** Omit for a dropdown-only parent with no destination page of its own (e.g. "Coaching"). */
+  to?: string
   children?: NavChild[]
 }
 
@@ -26,7 +27,13 @@ export const navItems: NavItem[] = [
       { label: 'Herscholing', to: paths.vveTrainingen.herscholing },
     ],
   },
-  { label: 'Beeldcoaching op maat', to: paths.beeldcoachingOpMaat },
+  {
+    label: 'Coaching',
+    children: [
+      { label: 'Beeldcoaching op maat', to: paths.beeldcoachingOpMaat },
+      { label: 'Pedagogische coach', to: paths.pedagogischCoach },
+    ],
+  },
   { label: 'Workshops', to: paths.workshops },
   { label: 'Over mij', to: paths.overMij },
   { label: 'Contact', to: paths.contact },
