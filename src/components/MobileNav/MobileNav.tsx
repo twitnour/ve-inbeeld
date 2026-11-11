@@ -3,20 +3,84 @@ import { NavLink } from 'react-router-dom'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { paths } from '../../routes/paths'
 import { Button } from '../Button/Button'
-import { navItems } from '../Navigation/navItems'
+import { navItems, type NavItem } from '../Navigation/navItems'
 import styles from './MobileNav.module.css'
+
+const linkClassName = ({ isActive }: { isActive: boolean }) =>
+  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+
+/**
+ * One accordion item (e.g. "VVE trainingen", "Coaching"). Its own
+ * component so each item owns independent open/close state and a
+ * unique submenu id — sharing a single piece of state/id across every
+ * accordion would open/close them in lockstep and duplicate the id in
+ * the DOM the moment there's more than one.
+ *
+ * When `item.to` is set the label is a real link (so it still
+ * navigates to that item's own page); when it's omitted (e.g.
+ * "Coaching", which has no destination of its own) the label renders
+ * as plain text and only the toggle button opens the submenu.
+ */
+function AccordionNavItem({
+  item,
+  onNavigate,
+}: {
+  item: NavItem & { children: NonNullable<NavItem['children']> }
+  onNavigate: () => void
+}) {
+  const [open, setOpen] = useState(false)
+  const submenuId = useId()
+
+  return (
+    <li className={styles.item}>
+      <div className={styles.accordionHeader}>
+        {item.to ? (
+          <NavLink to={item.to} end className={linkClassName} onClick={onNavigate}>
+            {item.label}
+          </NavLink>
+        ) : (
+          <span className={styles.link}>{item.label}</span>
+        )}
+        <button
+          type="button"
+          className={styles.accordionToggle}
+          aria-expanded={open}
+          aria-controls={submenuId}
+          aria-label={`Submenu ${item.label} ${open ? 'sluiten' : 'tonen'}`}
+          onClick={() => setOpen((current) => !current)}
+        >
+          <ChevronDown size={20} aria-hidden="true" className={open ? styles.chevronOpen : undefined} />
+        </button>
+      </div>
+
+      <ul id={submenuId} className={styles.sublist} data-open={open}>
+        {item.children.map((child) => (
+          <li key={child.to}>
+            <NavLink
+              to={child.to}
+              className={({ isActive }) =>
+                isActive ? `${styles.sublink} ${styles.linkActive}` : styles.sublink
+              }
+              onClick={onNavigate}
+            >
+              {child.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </li>
+  )
+}
 
 /**
  * Mobile navigation: a hamburger toggle in the header and a full
- * navigation panel with its own accordion for "VVE trainingen" —
- * this is a separate, purpose-built menu rather than a shrunk desktop
- * nav, so it has no hover-based logic at all.
+ * navigation panel with its own accordions (for "VVE trainingen" and
+ * "Coaching") — this is a separate, purpose-built menu rather than a
+ * shrunk desktop nav, so it has no hover-based logic at all.
  */
 export function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [submenuOpen, setSubmenuOpen] = useState(false)
   const panelId = useId()
-  const submenuId = useId()
 
   // Close on Escape, and stop the page from scrolling behind the panel.
   useEffect(() => {
@@ -35,10 +99,7 @@ export function MobileNav() {
     }
   }, [menuOpen])
 
-  const closeMenu = () => {
-    setMenuOpen(false)
-    setSubmenuOpen(false)
-  }
+  const closeMenu = () => setMenuOpen(false)
 
   return (
     <div className={styles.mobileNav}>
@@ -61,73 +122,26 @@ export function MobileNav() {
       >
         <nav aria-label="Mobiele navigatie" className={styles.panelInner}>
           <ul className={styles.list}>
-            {navItems.map((item) => {
-              if (!item.children) {
-                return (
-                  <li key={item.to} className={styles.item}>
-                    <NavLink
-                      to={item.to}
-                      end={item.to === paths.home}
-                      className={({ isActive }) =>
-                        isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                      }
-                      onClick={closeMenu}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                )
-              }
-
-              return (
+            {navItems.map((item) =>
+              item.children ? (
+                <AccordionNavItem
+                  key={item.to ?? item.label}
+                  item={{ ...item, children: item.children }}
+                  onNavigate={closeMenu}
+                />
+              ) : (
                 <li key={item.to} className={styles.item}>
-                  <div className={styles.accordionHeader}>
-                    <NavLink
-                      to={item.to}
-                      end
-                      className={({ isActive }) =>
-                        isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                      }
-                      onClick={closeMenu}
-                    >
-                      {item.label}
-                    </NavLink>
-                    <button
-                      type="button"
-                      className={styles.accordionToggle}
-                      aria-expanded={submenuOpen}
-                      aria-controls={submenuId}
-                      aria-label={`Submenu ${item.label} ${submenuOpen ? 'sluiten' : 'tonen'}`}
-                      onClick={() => setSubmenuOpen((open) => !open)}
-                    >
-                      <ChevronDown
-                        size={20}
-                        aria-hidden="true"
-                        className={submenuOpen ? styles.chevronOpen : undefined}
-                      />
-                    </button>
-                  </div>
-
-                  <ul id={submenuId} className={styles.sublist} data-open={submenuOpen}>
-                    {item.children.map((child) => (
-                      <li key={child.to}>
-                        <NavLink
-                          to={child.to}
-                          className={({ isActive }) =>
-                            isActive
-                              ? `${styles.sublink} ${styles.linkActive}`
-                              : styles.sublink
-                          }
-                          onClick={closeMenu}
-                        >
-                          {child.label}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
+                  <NavLink
+                    to={item.to as string}
+                    end={item.to === paths.home}
+                    className={linkClassName}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </NavLink>
                 </li>
-              )
-            })}
+              ),
+            )}
           </ul>
 
           <Button

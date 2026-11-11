@@ -6,6 +6,7 @@ import { UkPukEditie2Page } from '../pages/VveTrainingen/UkPukEditie2Page'
 import { NascholingUkPukEditie2Page } from '../pages/VveTrainingen/NascholingUkPukEditie2Page'
 import { HerscholingPage } from '../pages/VveTrainingen/HerscholingPage'
 import { BeeldcoachingPage } from '../pages/Beeldcoaching/BeeldcoachingPage'
+import { PedagogischCoachPage } from '../pages/PedagogischCoach/PedagogischCoachPage'
 import { WorkshopsPage } from '../pages/Workshops/WorkshopsPage'
 import { OverMijPage } from '../pages/OverMij/OverMijPage'
 import { ContactPage } from '../pages/Contact/ContactPage'
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       },
       { path: paths.vveTrainingen.herscholing, element: <HerscholingPage /> },
       { path: paths.beeldcoachingOpMaat, element: <BeeldcoachingPage /> },
+      { path: paths.pedagogischCoach, element: <PedagogischCoachPage /> },
       { path: paths.workshops, element: <WorkshopsPage /> },
       { path: paths.overMij, element: <OverMijPage /> },
       { path: paths.contact, element: <ContactPage /> },
